@@ -53,7 +53,7 @@ namespace TheTester.EditorTools
             Need<TextAsset>("Data/Inspection/interior");
             foreach (var s in new[] { "Art/Inspection/bg_exterior", "Art/Inspection/ioniq5_34_teal", "Art/Inspection/ioniq5_interior",
                                       "Art/Showroom/exterior_day", "Art/Menu/title_dusk", "Art/Drive/cabin_interior", "Art/Drive/lamp_red",
-                                      "Art/Props/award_lux_grand_prix", "Art/Props/award_effie_bronze", "Art/Zenith/stage", "UI/title_lockup",
+                                      "Art/Props/award_lux_grand_prix", "Art/Props/award_effie_bronze", "Art/Zenith/lobby", "Art/Zenith/lobby_fg", "Art/Zenith/finale_backdrop", "UI/title_lockup",
                                       "UI/end_lockup", "UI/magnifier_cursor", "UI/grain", "UI/vignette" })
                 Need<Texture2D>(s);
             foreach (var f in new[] { "Jost-Medium", "Jost-Regular", "Jost-Light", "CormorantGaramond-SemiBold", "CormorantGaramond-Italic", "CormorantGaramond-MediumItalic", "CormorantGaramond-Medium" })

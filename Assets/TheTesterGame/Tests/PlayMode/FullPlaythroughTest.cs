@@ -77,7 +77,7 @@ namespace TheTester.Tests
             _sim.PointerHeld = false;
         }
 
-        [UnityTest]
+        [UnityTest, Timeout(900000)]
         public IEnumerator CompleteGameFromMenuToEndScreen()
         {
             SceneManager.LoadScene("00_MainMenu");

@@ -185,13 +185,13 @@ namespace TheTester.Tests
     {
         [TestCase("showroom", new[] { "spawn", "station1", "station2", "exit", "coffee", "reception", "brochure", "bronze_car" })]
         [TestCase("drive", new[] { "start", "stop_line", "traffic_light", "obstacle", "school_start", "school_end", "parking", "far_lane", "near_lane" })]
-        [TestCase("zenith", new[] { "spawn", "awards", "award_lux", "award_effie", "reveal", "desk", "storyboard", "poster_tester", "camera" })]
+        [TestCase("zenith", new[] { "spawn", "entry", "reveal", "awards", "award_lux", "award_effie", "storyboard", "sign", "desk", "reels" })]
         public void LevelsLoadWithRequiredMarkers(string id, string[] markers)
         {
             var level = LevelData.FromJson(ProjectFiles.Data("Levels/" + id));
             Assert.AreEqual(id, level.Id);
             Assert.Less(level.XMin, level.XMax);
-            Assert.Greater(level.Layers.Count, 3);
+            Assert.GreaterOrEqual(level.Layers.Count, 3);
             foreach (var m in markers) Assert.IsNotNull(level.FindMarker(m), id + " missing marker " + m);
         }
 

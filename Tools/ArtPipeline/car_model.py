@@ -150,6 +150,34 @@ class CarPainter:
         path = path_smooth(pts, False, 0.4) if smooth else path_poly(pts, False)
         stroke(self.c, path, color=color, width=width or self.ink * 0.8, wobble=0.3, alpha=alpha)
 
+    def badge(self, quad3):
+        """Draws the Hyundai emblem (logos.mark) mapped onto a 3D quad given as TL, TR, BR, BL."""
+        import logos
+        from PIL import Image
+        em = logos.mark('emblem', 160, (255, 255, 255))
+        a = np.asarray(em).astype(np.float32)
+        h = a.shape[0]
+        g = np.linspace(0, 1, h)[:, None]
+        chrome = np.array([236, 238, 240]) * (1 - g[..., None]) + np.array([132, 140, 148]) * g[..., None]
+        chrome = chrome + 26 * np.exp(-((g[..., None] - 0.42) / 0.08) ** 2)        # specular band
+        a[..., :3] = np.clip(chrome, 0, 255)
+        shadow = np.zeros_like(a)
+        shadow[..., 3] = a[..., 3] * 0.55
+        dst = [skia.Point(*self.cam.p(q)) for q in quad3]
+        w = a.shape[1]
+        src = [skia.Point(0, 0), skia.Point(w, 0), skia.Point(w, h), skia.Point(0, h)]
+        m = skia.Matrix()
+        m.setPolyToPoly(src, dst)
+        p = skia.Paint(AntiAlias=True)
+        samp = skia.SamplingOptions(skia.FilterMode.kLinear, skia.MipmapMode.kLinear)
+        for img, off in ((shadow, (0.6, 0.8)), (a, (0.0, 0.0))):
+            si = skia.Image.fromarray(np.clip(img, 0, 255).astype(np.uint8), colorType=skia.kRGBA_8888_ColorType)
+            self.c.save()
+            self.c.translate(*off)
+            self.c.concat(m)
+            self.c.drawImage(si, 0, 0, samp, p)
+            self.c.restore()
+
     def side_pts(self, pts2, z=None):
         return [(x, y, zside(y) if z is None else z) for x, y in pts2]
 
@@ -409,12 +437,8 @@ class CarPainter:
         # skid plate + licence plate
         self.poly([F(-330, 600), F(330, 600), F(330, 700), F(-330, 700)], (226, 224, 214), outline=True, width=self.ink * 0.7)
         self.line([F(-280, 650), F(280, 650)], width=1.0, color=(120, 120, 120), alpha=0.5)
-        # emblem: slanted H in an ellipse (placeholder for the official badge)
-        e = [F(55 * math.cos(t), 760 + 26 * math.sin(t), 4) for t in np.linspace(0, 2 * math.pi, 24)]
-        self.poly(e, (196, 200, 204), outline=True, width=self.ink * 0.6, smooth=True)
-        self.line([F(-22, 745, 6), F(-10, 775, 6)], width=2.4, color=(40, 44, 48))
-        self.line([F(10, 745, 6), F(22, 775, 6)], width=2.4, color=(40, 44, 48))
-        self.line([F(-14, 760, 6), F(16, 760, 6)], width=2.0, color=(40, 44, 48))
+        # emblem: the official Hyundai badge in chrome, laid onto the front face in perspective
+        self.badge([F(55, 786, 5), F(-55, 786, 5), F(-55, 734, 5), F(55, 734, 5)])
 
     def side_details(self):
         pt = self.paint

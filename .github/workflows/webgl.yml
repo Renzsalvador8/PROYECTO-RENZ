@@ -1,0 +1,201 @@
+# The Tester — continuous integration.
+#
+#  * compile-check  always runs (no Unity needed): Core unit tests + C# compile checks against Unity reference DLLs.
+#  * build-webgl    real Unity 6 WebGL build with GameCI. Needs a (free) Unity Personal licence stored as repository
+#                   secrets UNITY_LICENSE, UNITY_EMAIL and UNITY_PASSWORD. Without them the Unity jobs are skipped
+#                   (not failed). The playable build is attached to every run as the "TheTester-WebGL" artifact.
+#  * deploy-pages   publishes the build to GitHub Pages (https://<owner>.github.io/<repo>/) once
+#                   Settings ▸ Pages ▸ Source is set to "GitHub Actions".
+#  * unity-tests    EditMode + PlayMode tests inside Unity (runs after the build so the licence is not used twice
+#                   at the same time).
+# Step-by-step setup (Spanish): Docs/COMO_PROBAR.md
+name: The Tester · WebGL
+
+on:
+  push:
+    branches: [claude/eloquent-turing-hyvqcr, main]
+    paths-ignore: ['Docs/**', '**/*.md']
+  pull_request:
+    paths-ignore: ['Docs/**', '**/*.md']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: webgl-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  compile-check:
+    name: Compile check + Core tests (no Unity)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: '8.0.x'
+      - name: Fetch Unity reference assemblies
+        run: bash Tools/CompileCheck/fetch_refs.sh
+      - name: Core tests
+        run: dotnet test Tools/CompileCheck/CoreTests.csproj
+      - name: Compile runtime (legacy input)
+        run: dotnet build Tools/CompileCheck/Runtime.csproj --no-incremental
+      - name: Compile runtime (Input System + editor defines)
+        run: dotnet build Tools/CompileCheck/Runtime.csproj --no-incremental "-p:TTDefines=TT_INPUT_SYSTEM%3BENABLE_INPUT_SYSTEM%3BUNITY_EDITOR"
+      - name: Compile editor tools and tests
+        run: dotnet build Tools/CompileCheck/Editor.csproj --no-incremental
+
+  gate:
+    name: Check Unity licence / Pages
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      pages: read
+    outputs:
+      unity: ${{ steps.lic.outputs.ok }}
+      pages: ${{ steps.pages.outputs.ok }}
+    steps:
+      - id: lic
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        run: |
+          if [ -n "$UNITY_LICENSE" ] && [ -n "$UNITY_EMAIL" ] && [ -n "$UNITY_PASSWORD" ]; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "::notice title=Unity build skipped::Add the UNITY_LICENSE, UNITY_EMAIL and UNITY_PASSWORD secrets (Settings > Secrets and variables > Actions). See Docs/COMO_PROBAR.md"
+            echo "Unity WebGL build skipped: add the UNITY_LICENSE, UNITY_EMAIL and UNITY_PASSWORD secrets (see Docs/COMO_PROBAR.md)." >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - id: pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          t=$(gh api "repos/${{ github.repository }}/pages" --jq .build_type 2>/dev/null || true)
+          if [ "$t" = "workflow" ]; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "::notice title=GitHub Pages not enabled::Settings > Pages > Build and deployment > Source: GitHub Actions"
+          fi
+
+  build-webgl:
+    name: Unity WebGL build
+    needs: [gate, compile-check]
+    if: needs.gate.outputs.unity == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - name: Free disk space (the Unity WebGL image is ~7 GB)
+        uses: jlumbroso/free-disk-space@v1.3.1
+        with:
+          tool-cache: false
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: false
+          docker-images: true
+          swap-storage: false
+      - run: df -h /
+      - uses: actions/checkout@v7
+      - uses: actions/cache@v6
+        with:
+          path: Library
+          key: Library-WebGL-6000.0.47f1-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: Library-WebGL-6000.0.47f1-
+      - name: Build (Unity 6, WebGL)
+        uses: game-ci/unity-builder@v5.0.1
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: WebGL
+          unityVersion: auto
+          # applies the project setup (Gzip + decompression fallback, web template, Gamma) and builds the 4 scenes
+          buildMethod: TheTester.EditorTools.TheTesterBuild.BuildWebGLBatch
+          buildsPath: Builds
+          versioning: None
+      - name: Check output
+        run: |
+          test -f Builds/WebGL/index.html
+          ls -la Builds/WebGL Builds/WebGL/Build
+          du -sh Builds/WebGL
+      - uses: actions/upload-artifact@v7
+        with:
+          name: TheTester-WebGL
+          path: Builds/WebGL
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 0
+      - name: Prepare GitHub Pages artifact
+        if: github.event_name != 'pull_request' && needs.gate.outputs.pages == 'true' && github.ref_name == github.event.repository.default_branch
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: Builds/WebGL
+
+  deploy-pages:
+    name: Publish to GitHub Pages
+    needs: [gate, build-webgl]
+    if: github.event_name != 'pull_request' && needs.gate.outputs.pages == 'true' && github.ref_name == github.event.repository.default_branch
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
+      - name: Link
+        run: |
+          echo "Jugar / Play: ${{ steps.deployment.outputs.page_url }}" >> "$GITHUB_STEP_SUMMARY"
+
+  unity-tests:
+    name: Unity tests (EditMode + PlayMode)
+    needs: [gate, build-webgl]
+    if: always() && needs.gate.outputs.unity == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      checks: write
+    steps:
+      - name: Free disk space
+        uses: jlumbroso/free-disk-space@v1.3.1
+        with:
+          tool-cache: false
+          android: true
+          dotnet: true
+          haskell: true
+          large-packages: false
+          docker-images: true
+          swap-storage: false
+      - uses: actions/checkout@v7
+      - uses: actions/cache@v6
+        with:
+          path: Library
+          key: Library-Tests-6000.0.47f1-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
+          restore-keys: Library-Tests-6000.0.47f1-
+      - id: tests
+        uses: game-ci/unity-test-runner@v4.3.2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          testMode: all
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          checkName: Unity tests (EditMode + PlayMode)
+      - if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: unity-test-results
+          path: ${{ steps.tests.outputs.artifactsPath }}

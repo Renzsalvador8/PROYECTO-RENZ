@@ -15,6 +15,7 @@ namespace TheTester
         private readonly List<AudioSource> _pool = new List<AudioSource>();
         private readonly Dictionary<string, AudioSource> _loops = new Dictionary<string, AudioSource>();
         private readonly Dictionary<AudioSource, float> _baseVolume = new Dictionary<AudioSource, float>();
+        private readonly Dictionary<AudioSource, Coroutine> _fades = new Dictionary<AudioSource, Coroutine>();
         private float _duck = 1f;
         private Coroutine _duckRoutine;
         private int _step;
@@ -85,30 +86,39 @@ namespace TheTester
             var cur = pair[idx];
             if (cur.isPlaying && cur.clip == clip)
             {
-                StartCoroutine(FadeBase(cur, volume, fade));
+                Fade(cur, volume, fade);     // also cancels a pending fade-out of the same clip
                 return;
             }
             idx = 1 - idx;
             var next = pair[idx];
+            if (_fades.TryGetValue(next, out var pending) && pending != null) StopCoroutine(pending);
             next.clip = clip;
             next.loop = loop;
             _baseVolume[next] = 0f;
             next.volume = 0f;
             next.Play();
-            StartCoroutine(FadeBase(next, volume, fade));
-            StartCoroutine(FadeBase(cur, 0f, fade, stopAtEnd: true));
+            Fade(next, volume, fade);
+            Fade(cur, 0f, fade, stopAtEnd: true);
         }
 
         private void FadeOutAll(AudioSource[] pair, float fade)
         {
-            foreach (var s in pair) if (s.isPlaying) StartCoroutine(FadeBase(s, 0f, fade, true));
+            foreach (var s in pair) if (s.isPlaying) Fade(s, 0f, fade, true);
         }
 
-        private IEnumerator FadeBase(AudioSource s, float target, float time, bool stopAtEnd = false)
+        /// <summary>One fade per source: a new fade replaces the running one (a stale fade-out never stops new music).</summary>
+        private void Fade(AudioSource s, float target, float time, bool stopAtEnd = false)
+        {
+            if (_fades.TryGetValue(s, out var running) && running != null) StopCoroutine(running);
+            _fades[s] = StartCoroutine(FadeBase(s, target, time, stopAtEnd));
+        }
+
+        private IEnumerator FadeBase(AudioSource s, float target, float time, bool stopAtEnd)
         {
             float from = _baseVolume.TryGetValue(s, out float v) ? v : 0f;
             yield return Tween.Run(time, k => _baseVolume[s] = Mathf.Lerp(from, target, k), Ease.Linear, unscaled: true);
             if (stopAtEnd && target <= 0f) s.Stop();
+            _fades[s] = null;
         }
 
         /// <summary>Temporarily lowers music (deadpan silences, award moments).</summary>
@@ -116,6 +126,14 @@ namespace TheTester
         {
             if (_duckRoutine != null) StopCoroutine(_duckRoutine);
             _duckRoutine = StartCoroutine(Tween.Run(time, k => _duck = Mathf.Lerp(_duck, level, k), Ease.Linear, true));
+        }
+
+        /// <summary>Clears any music duck (called on scene changes so a duck never leaks into the next scene).</summary>
+        public void ResetDuck()
+        {
+            if (_duckRoutine != null) StopCoroutine(_duckRoutine);
+            _duckRoutine = null;
+            _duck = 1f;
         }
 
         // ------------------------------------------------------------------ sfx

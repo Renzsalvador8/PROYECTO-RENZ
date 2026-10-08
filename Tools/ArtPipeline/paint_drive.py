@@ -245,8 +245,12 @@ def garage_exit(w=900, h=900, seed=34):
     for x in range(160, 760, 120):
         cv.rect(x, 316, 70, 6, (255, 240, 210))
     cv.rect(220, 160, 460, 80, (14, 22, 30), outline=1.8)
-    cv.text('HYUNDAI · SALIDA', w / 2, 212, 30, (232, 226, 214), 'Jost-Medium.ttf', spacing=6, align='center')
-    return cv.finish(texture=1.0, seed=seed)
+    tw = cv.text('SALIDA', w / 2 + 52, 212, 30, (232, 226, 214), 'Jost-Medium.ttf', spacing=6, align='center')
+    img = cv.finish(texture=1.0, seed=seed)
+    import logos
+    em = logos.mark('emblem', 40, (232, 226, 214))
+    img.alpha_composite(em, (int(w / 2 + 52 - tw / 2 - 22 - em.width), 200 - em.height // 2))
+    return img
 
 
 def cabin_interior(paint_w, paint_h):

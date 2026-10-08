@@ -107,16 +107,8 @@ def bay(kind='window', w=400, seed=0):
         cv.vgrad(0, ceil_y, w, h - ceil_y, [(34, 54, 70), (22, 36, 48)])
         cv.rect(0, ceil_y, w, h - ceil_y, (0, 0, 0), alpha=0.0, outline=1.6)
         cy = ceil_y + 250
-        # emblem: italic H in an ellipse (stylised placeholder of the official badge)
-        ex = w / 2
-        cv.ellipse(ex, cy - 6, 92, 58, (226, 226, 220), alpha=0.0, outline=0)
-        cv.line([(ex + 92 * math.cos(t), cy - 6 + 58 * math.sin(t)) for t in np.linspace(0, 2 * math.pi, 60)],
-                color=(232, 230, 222), width=7, wobble=0.0)
-        cv.line([(ex - 40, cy - 40), (ex - 24, cy + 28)], color=(232, 230, 222), width=11, wobble=0)
-        cv.line([(ex + 24, cy - 40), (ex + 40, cy + 28)], color=(232, 230, 222), width=11, wobble=0)
-        cv.line([(ex - 32, cy - 4), (ex + 32, cy - 8)], color=(232, 230, 222), width=9, wobble=0)
-        cv.glow(ex, cy, 220, (200, 220, 230), 0.12)
-        cv.text('HYUNDAI', w / 2, cy + 150, 64, (232, 230, 222), 'Jost-Medium.ttf', spacing=26, align='center')
+        # the official lockup (emblem over wordmark) is composited after the paint finish, so it stays crisp
+        cv.glow(w / 2, cy, 220, (200, 220, 230), 0.12)
         cv.text('IONIQ  ·  PRUEBA DE EXCELENCIA', w / 2, cy + 205, 20, (150, 170, 182), 'Jost-Regular.ttf', spacing=6, align='center')
         cv.rect(0, h - 40, w, 40, (20, 28, 36), outline=1.2)
     # ceiling band (always)
@@ -125,7 +117,11 @@ def bay(kind='window', w=400, seed=0):
     for x in range(40, w, 200):
         cv.rect(x, ceil_y - 40, 120, 8, WARM)
         cv.glow(x + 60, ceil_y - 30, 110, (255, 240, 210), 0.10)
-    return cv.finish(texture=1.0, seed=seed + 11, streak=0.01)
+    img = cv.finish(texture=1.0, seed=seed + 11, streak=0.01)
+    if kind == 'brand':
+        import logos
+        logos.paste_center(img, logos.mark('stacked', 250, (232, 230, 222)), w / 2, ceil_y + 250 + 45)
+    return img
 
 
 def floor_tile(w=512, h=320, seed=2):
@@ -281,7 +277,6 @@ def exterior(day=True, w=2048, h=1080, seed=12, top=300, ground_y=860, sign_dx=5
     # roof slab
     cv.poly([(bx0 - 120, top), (bx1, top), (bx1, top + 60), (bx0 - 80, top + 60)], (226, 224, 218) if day else (40, 48, 58),
             outline=2.2, shader=lin_grad((0, top), (0, top + 60), [(236, 234, 228), (182, 180, 176)] if day else [(52, 60, 70), (26, 32, 40)]))
-    cv.text('HYUNDAI', bx0 + sign_dx, top + 44, 40, (24, 40, 56) if day else (236, 232, 222), 'Jost-Medium.ttf', spacing=18)
     # entrance doors
     dx = 1300
     cv.rect(dx, ground_y - 330, 180, 330, (40, 60, 74), alpha=0.35, outline=2.0)
@@ -302,7 +297,12 @@ def exterior(day=True, w=2048, h=1080, seed=12, top=300, ground_y=860, sign_dx=5
     cv.rect(520, ground_y - 476, 64, 12, (30, 34, 38), outline=1.2)
     if not day:
         cv.glow(552, ground_y - 462, 140, (255, 214, 150), 0.35)
-    return cv.finish(texture=1.0, seed=seed, streak=0.01)
+    img = cv.finish(texture=1.0, seed=seed, streak=0.01)
+    # roof fascia: the official emblem + wordmark, side by side (composited after the finish: crisp)
+    import logos
+    lock = logos.lockup_h(40, (24, 40, 56) if day else (236, 232, 222), gap=0.42, word_scale=0.42)
+    img.alpha_composite(lock, (int(bx0 + sign_dx), int(top + 30 - lock.height / 2)))
+    return img
 
 
 def build():

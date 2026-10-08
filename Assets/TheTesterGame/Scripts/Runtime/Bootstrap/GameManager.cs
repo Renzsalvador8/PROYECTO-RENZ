@@ -132,6 +132,7 @@ namespace TheTester
             GameInput.ClearVirtual();
             yield return UIManager.I.FadeOut(0.8f);
             AudioManager.I.StopAllLoops();
+            AudioManager.I.ResetDuck();
             string name = GameScenes.SceneName(scene);
             if (Application.CanStreamedLevelBeLoaded(name))
             {

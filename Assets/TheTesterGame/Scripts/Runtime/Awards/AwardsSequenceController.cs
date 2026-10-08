@@ -100,30 +100,18 @@ namespace TheTester
 
             var root = new GameObject("Finale").transform;
             root.position = stage;
+            // the studio behind him, out of focus, with the glowing Zenith Studio sign at his side
             var back = new GameObject("Backdrop").AddComponent<SpriteRenderer>();
             back.transform.SetParent(root, false);
-            back.transform.localPosition = new Vector3(0f, -4.2f, 0f);
-            back.sprite = GameAssets.Sprite("Art/Zenith/stage", 100f, new Vector2(0.5f, 0f));
+            back.transform.localPosition = new Vector3(0f, -2.6f, 0f);
+            back.sprite = GameAssets.Sprite("Art/Zenith/finale_backdrop", 200f, new Vector2(0.5f, 0.5f));
             back.sortingOrder = 3000;
-            var floor = new GameObject("Floor").AddComponent<SpriteRenderer>();
-            floor.transform.SetParent(root, false);
-            floor.transform.localPosition = new Vector3(0f, -4.2f, 0f);
-            floor.transform.localScale = new Vector3(4.5f, 1f, 1f);
-            floor.sprite = GameAssets.Sprite("Art/Zenith/floor", 100f, new Vector2(0.5f, 1f));
-            floor.sortingOrder = 3001;
-            var cone = new GameObject("Spot").AddComponent<SpriteRenderer>();
-            cone.transform.SetParent(root, false);
-            cone.transform.localPosition = new Vector3(0f, -4.9f, 0f);
-            cone.transform.localScale = new Vector3(1.0f, 1.1f, 1f);
-            cone.sprite = GameAssets.Sprite("Art/Showroom/spot_cone", 100f, new Vector2(0.5f, 0f));
-            cone.color = new Color(1f, 0.95f, 0.88f, 0.55f);
-            cone.sortingOrder = 3002;
             var halo = new GameObject("Halo").AddComponent<SpriteRenderer>();
             halo.transform.SetParent(root, false);
             halo.transform.localPosition = new Vector3(0f, -2.6f, 0f);
             halo.transform.localScale = new Vector3(2.2f, 2.6f, 1f);
             halo.sprite = GameAssets.Sprite("UI/circle_soft", 100f);
-            halo.color = new Color(1f, 0.86f, 0.68f, 0.22f);
+            halo.color = new Color(1f, 0.86f, 0.68f, 0.12f);
             halo.sortingOrder = 3003;
             var fr = FrontRig.Create(root, (Vector3)stage + new Vector3(0f, -4.35f, 0f), 3010, 1.0f);
             fr.AutoBlink = true;

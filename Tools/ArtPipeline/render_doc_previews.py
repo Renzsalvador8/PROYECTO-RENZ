@@ -93,26 +93,30 @@ def main():
             L['items'] += car_items(x, -3.58, 40)
     im = render_level(l3, x + 0.5, cam_y=-3.58 + 1.62, ortho=1.25, size=(W, H), actors=[driver(x, -3.58, 'sit_stache', 1.2, -850)])
     finish(im, '08_drive_closeup', 0.7)
-    # 9 zenith studio
+    # 9 zenith studio: the painted lobby, Jean Paul walking in from behind the crates
     zl = load_level('zenith')
-    im = render_level(zl, 10.0, size=(W, H), actors=[{'rig': side, 'x': 12.2, 'y': -3.5, 'order': -95, 'pose': pose('idle', 1.0)}])
+    mk = {m['id']: m for m in zl['markers']}
+    im = render_level(zl, 0.3, size=(W, H), actors=[{'rig': side, 'x': 3.6, 'y': -3.5, 'order': -50, 'flip': True,
+                                                      'pose': pose('walk', 0.35)}])
     finish(im, '09_zenith_studio')
-    # 10 awards stage
-    st = [m for m in zl['markers'] if m['id'] == 'awards'][0]['x']
-    im = render_level(zl, st, ortho=5.9, cam_y=0.45, size=(W, H), actors=[{'rig': side, 'x': st - 1.15, 'y': -3.5, 'order': -95, 'pose': pose('receive', 0.6)}])
+    # 10 awards: receiving the LUX Grand Prix
+    lux = mk['award_lux']['x']
+    im = render_level(zl, -0.37, size=(W, H), actors=[{'rig': side, 'x': lux + 1.05, 'y': -3.5, 'order': -50, 'flip': True,
+                                                       'pose': pose('receive', 0.6)}])
     finish(im, '10_awards_stage')
-    # 11 finale close-up
+    # 11 finale close-up (front rig in front of the defocused studio, sign at his side)
     head_y = -4.35 + front['bones'][2]['pos'][1]
     cy, size = head_y - 0.36, 0.98
     ppu = H / (2 * size)
     s = skia.Surface(W, H); c = s.getCanvas(); c.clear(skia.Color(6, 12, 20))
-    def draw(sprite, x, y, pivot, sx=1, sy=1, alpha=1.0):
-        img = load_sprite(sprite); iw, ih = img.width(), img.height(); k = ppu / 100
+    def draw(sprite, x, y, pivot, sx=1, sy=1, alpha=1.0, src_ppu=100):
+        img = load_sprite(sprite); iw, ih = img.width(), img.height(); k = ppu / src_ppu
         c.save(); c.translate(W / 2 + x * ppu, H / 2 - (y - cy) * ppu); c.scale(k * sx, k * sy); c.translate(-pivot[0] * iw, -(1 - pivot[1]) * ih)
         p = skia.Paint(AntiAlias=True); p.setAlphaf(alpha)
         c.drawImage(img, 0, 0, skia.SamplingOptions(skia.FilterMode.kLinear, skia.MipmapMode.kLinear), p); c.restore()
-    draw('Art/Zenith/stage', 0, -4.2, (0.5, 0))
-    draw('UI/circle_soft', 0, -2.6, (0.5, 0.5), 2.2, 2.6, 0.22)
+    import paint_zenith_lobby as ZL
+    draw('Art/Zenith/finale_backdrop', 0, ZL.FINALE['center_y'], (0.5, 0.5), src_ppu=ZL.FINALE['ppu'])
+    draw('UI/circle_soft', 0, -2.6, (0.5, 0.5), 2.2, 2.6, 0.12)
     rigtools.render(front, {}, size=(W, H), ppu_out=ppu, origin=(W / 2, H / 2 - (-4.35 - cy) * ppu), canvas=c, slot_sprites={'head': 'head_smile'})
     img = s.makeImageSnapshot()
     finish(Image.fromarray(img.toarray(colorType=skia.kRGBA_8888_ColorType)), '11_finale_smile', 0.75)

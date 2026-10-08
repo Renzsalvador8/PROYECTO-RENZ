@@ -148,56 +148,47 @@ if __name__ == '__main__':
 
 
 def zenith():
-    L = Level('zenith', bounds=(-2.0, 48.0), ground_y=GROUND, background=(6, 12, 20))
-    wall = L.layer('wall', 0.9, -800)
-    a = -12.0
-    for k in ['led', 'plain', 'led', 'plain', 'plain', 'led', 'plain', 'plain', 'led', 'plain', 'logo', 'led', 'plain']:
-        w = img_size('Art/Zenith/bay_' + k)[0] / 100.0
-        wall.add('Art/Zenith/bay_' + k, a + w / 2, WALL_BASE, pivot=(0.5, 0.0))
-        if k == 'logo':
-            L.marker('logo', a + w / 2)
-        a += w
-    wall.add('Art/Zenith/stage', a + 7.0, WALL_BASE, pivot=(0.5, 0.0))
-    L.marker('stage', a + 7.0)
-    stage_x = a + 7.0
-    a += 14.0
-    while a < 70:
-        wall.add('Art/Zenith/bay_plain', a + 2.0, WALL_BASE, pivot=(0.5, 0.0)); a += 4.0
-    deco = L.layer('deco', 0.9, -780)
-    deco.add('Art/Zenith/poster_car', 4.2, 1.35, pivot=(0.5, 0.0), sx=0.66, sy=0.66)
-    deco.add('Art/Zenith/poster_mountain', 7.0, 1.35, pivot=(0.5, 0.0), sx=0.66, sy=0.66)
-    deco.add('Art/Zenith/poster_tester', 11.4, 0.2, pivot=(0.5, 0.0), sx=0.66, sy=0.66, id='poster_tester')
-    deco.add('Art/Zenith/storyboard', 20.5, -0.3, pivot=(0.5, 0.0), sx=0.85, sy=0.85, id='storyboard')
-    mid = L.layer('mid', 0.95, -600)
-    mid.add('Art/Zenith/desk', 8.0, WALL_BASE - 0.4, id='desk')
-    mid.add('Art/Props/chair', 6.6, WALL_BASE - 0.95, ppu=150)
-    mid.add('Art/Zenith/softbox', 14.6, WALL_BASE - 0.5, sx=0.85, sy=0.85)
-    mid.add('Art/Showroom/plant_mid', 1.5, WALL_BASE - 0.3, tint=(0.7, 0.78, 0.86))
-    mid.add('Art/Showroom/plant_mid', 27.5, WALL_BASE - 0.3, tint=(0.7, 0.78, 0.86), flip=True)
-    floor = L.layer('floor', 1.0, -500)
-    floor.tile('Art/Zenith/floor', -14, 70, WALL_BASE, pivot=(0.0, 1.0))
+    """Zenith Studio: the client's office painting as a single, fixed-camera room (see paint_zenith_lobby).
+    Jean Paul enters from behind the crates on the right and walks left to the awards."""
+    import paint_zenith_lobby as Z
+    W, H = img_size('Art/Zenith/lobby')
+    left, bottom = -W / Z.PPU / 2, Z.world_y(Z.CROP_Y1, GROUND)
+    L = Level('zenith', bounds=(left + 0.02, -left - 0.02), ground_y=GROUND, background=(10, 20, 26),
+              cam_y=round(bottom + 3.5 + 0.11, 3), cam_size=3.5)
+    room = L.layer('room', 1.0, -800)
+    room.add('Art/Zenith/lobby', 0.0, bottom, ppu=Z.PPU, pivot=(0.5, 0.0))
+    sx, sy = Z.world_x(Z.SIGN_C[0]), Z.world_y(Z.SIGN_C[1], GROUND)
+    halo_ppu = 512 / (2 * (Z.SIGN_R / Z.ORIG_PPU) / Z.HALO_INNER)
+    room.add('Art/Zenith/sign_halo', sx, sy, ppu=round(halo_ppu, 2), pivot=(0.5, 0.5), order=5, alpha=0.8, id='sign_halo')
     play = L.layer('play', 1.0, -100)
-    play.add('Art/Zenith/tripod_camera', 22.5, GROUND + 0.6, pivot=(0.5, 0.0), sx=0.75, sy=0.75, order=-40, id='camera')
-    # awards: two pedestals under spotlights
-    px1, px2 = stage_x - 2.2, stage_x + 2.2
+    # awards: two concrete pedestals in the walking plane, framing the wall sconces
+    px1, px2 = round(Z.world_x(300), 3), round(Z.world_x(556), 3)
+    base = GROUND + 0.35
+    ped_sx, ped_sy = 0.32, 0.36
+    top = base + 4.2 * ped_sy * (1 - 38 / 420)
     for px, aw, plq, ppu, idp in ((px1, 'award_lux_grand_prix', 'plaque_lux', 340, 'lux'), (px2, 'award_effie_bronze', 'plaque_effie', 420, 'effie')):
-        play.add('Art/Showroom/spot_cone', px, GROUND - 0.4, pivot=(0.5, 0.0), sx=0.75, sy=1.05, order=-5, alpha=0.85, tint=(1.0, 0.95, 0.88))
-        play.add('Art/Zenith/pedestal', px, GROUND + 0.55, pivot=(0.5, 0.0), sx=0.36, sy=0.36, order=-30, id='pedestal_' + idp)
-        play.add('Art/Props/' + aw, px, GROUND + 0.55 + 4.2 * 0.36 - 0.12, ppu=ppu, pivot=(0.5, 0.02), order=-20, id='award_' + idp)
-        play.add('Art/Zenith/' + plq, px, GROUND + 1.05, pivot=(0.5, 0.5), sx=0.42, sy=0.42, order=-25)
-    fg = L.layer('fg', 1.3, 500, parallax_y=1.1)
-    fg.add('Art/Zenith/boom_fg', 13.0, 2.4, pivot=(0.5, 0.0), alpha=0.95)
-    fg.add('Art/Showroom/column_fg', 30.5, -7.0, pivot=(0.5, 0.0), sx=0.8)
-    L.marker('spawn', 0.5)
-    L.marker('awards', stage_x, prompt='PRESIONA E PARA RECIBIR EL PREMIO', radius=2.4)
+        play.add('Art/Showroom/spot_cone', px, GROUND - 0.6, pivot=(0.5, 0.0), sx=0.62, sy=0.8, order=-5, alpha=0.4, tint=(1.0, 0.94, 0.84))
+        play.add('Art/Zenith/pedestal_concrete', px, base, pivot=(0.5, 0.0), sx=ped_sx, sy=ped_sy, order=-30, id='pedestal_' + idp)
+        play.add('Art/Props/' + aw, px, round(top - 0.02, 4), ppu=ppu, pivot=(0.5, 0.02), order=-20, id='award_' + idp)
+        play.add('Art/Zenith/' + plq, px, base + 0.5, pivot=(0.5, 0.5), sx=0.3, sy=0.3, order=-25, tint=(0.86, 0.84, 0.82))
+    # crates and filing cabinet in front of the walking line (cut from the same painting, stays registered)
+    fw, fh = img_size('Art/Zenith/lobby_fg')
+    fx0 = left + Z.foreground_offset()[0] / Z.PPU
+    fg = L.layer('fg', 1.0, 400)
+    fg.add('Art/Zenith/lobby_fg', fx0, bottom, ppu=Z.PPU, pivot=(0.0, 0.0))
+    # invisible walls: left of the first pedestal, right behind the cabinet
+    L.collider(px1 - 1.0, GROUND + 1.2, 0.4, 3.0, id='left')
+    L.collider(6.4, GROUND + 1.2, 0.4, 3.0, id='right')
+    L.marker('spawn', 5.9)
+    L.marker('entry', 2.9)
+    L.marker('reveal', round(sx, 3), round(sy, 3))           # the glowing sign: where the camera reveal starts
+    L.marker('awards', round((px1 + px2) / 2, 3), prompt='PRESIONA E PARA RECIBIR EL PREMIO', radius=1.6)
     L.marker('award_lux', px1)
     L.marker('award_effie', px2)
-    L.marker('reveal', stage_x - 9.0)
-    L.marker('desk', 8.0, prompt='PRESIONA E PARA OBSERVAR', radius=1.6)
-    L.marker('storyboard', 20.5, prompt='PRESIONA E PARA OBSERVAR', radius=1.6)
-    L.marker('poster_tester', 11.4, prompt='PRESIONA E PARA OBSERVAR', radius=1.0)
-    L.marker('camera', 22.5, prompt='PRESIONA E PARA OBSERVAR', radius=1.2)
-    L.d['bounds'] = [-2.0, stage_x + 9.6]
+    L.marker('storyboard', round(Z.world_x(650), 3), prompt='PRESIONA E PARA OBSERVAR', radius=0.9)
+    L.marker('sign', round(sx, 3), prompt='PRESIONA E PARA OBSERVAR', radius=0.9)
+    L.marker('desk', round(Z.world_x(930), 3), prompt='PRESIONA E PARA OBSERVAR', radius=0.9)
+    L.marker('reels', round(Z.world_x(1180), 3), prompt='PRESIONA E PARA OBSERVAR', radius=0.9)
     return L.export()
 
 

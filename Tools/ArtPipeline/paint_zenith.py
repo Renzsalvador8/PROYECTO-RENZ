@@ -1,4 +1,4 @@
-"""Zenith Studio: a cinematic production studio with the awards stage."""
+"""Zenith Studio pieces: the award plaques (shipped) and the original studio-corridor kit (kept in Art/Source)."""
 import math
 import numpy as np
 from PIL import Image
@@ -243,7 +243,9 @@ def build():
     out['floor'] = floor_tile()
     out['boom_fg'] = boom_fg()
     for k, v in out.items():
-        save_png(v, 'Zenith/' + k)
+        # the final level is now the painted lobby (paint_zenith_lobby); only the plaques ship, the rest of the
+        # studio kit is kept as source art
+        save_png(v, 'Zenith/' + k, root=ART_OUT if k.startswith('plaque_') else ART_SRC)
     return out
 
 

@@ -45,7 +45,8 @@ namespace TheTester.Core
             "THE TESTER — THE ULTIMATE TEST\nUn juego original de Zenith Studio\n\n" +
             "Personaje: Jean Paul Tester, creado por Zenith Studio para Hyundai\n" +
             "Tipografías: Cormorant Garamond y Jost (SIL Open Font License)\n" +
-            "Música y sonido: diseño procedural original\n\nCREATE BEYOND REAL";
+            "Música: banda sonora original de Zenith Studio\n" +
+            "Sonido: diseño procedural original\n\nCREATE BEYOND REAL";
 
         public const string PauseTitle = "PAUSA";
         public const string PauseResume = "CONTINUAR";
@@ -159,8 +160,8 @@ namespace TheTester.Core
             { "bronze_car", "Otro IONIQ 5. Mismo problema: ninguno." },
             { "desk", "Una línea de tiempo. Veinticuatro fotogramas por segundo. Ni uno más. Bien." },
             { "storyboard", "Alguien dibujó mi bigote. Con precisión. Inquietante." },
-            { "poster_tester", "Un retrato. El bigote está… correcto." },
-            { "camera", "Cámara de cine. Lente impecable. Lo comprobé. Dos veces." },
+            { "sign", "El logo brilla de forma uniforme. Lo medí. Tres veces." },
+            { "reels", "Latas de película. Etiquetadas. En orden alfabético. Respeto." },
         };
         public const string IdleRemark = "…";
 

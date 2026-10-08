@@ -3,7 +3,7 @@
     cd Tools/ArtPipeline && python3 build_all.py
 
 Requirements: Python 3.10+, numpy, scipy, pillow, skia-python (pip install numpy scipy pillow skia-python).
-Inputs: the reference sheets in Assets/References. Outputs: Assets/TheTesterGame/{Art,UI,Data,Animations}.
+Inputs: the reference sheets, logos and concept painting in Assets/References. Outputs: Assets/TheTesterGame/{Art,UI,Data,Animations}.
 """
 import importlib
 import time
@@ -17,7 +17,8 @@ STEPS = [
     ('paint_showroom', 'build'),      # showroom modules, exterior arrival, title painting
     ('paint_interior', 'build'),      # cabin for the detail test + clue crops
     ('paint_drive', 'build'),         # city layers and street props
-    ('paint_zenith', 'build'),        # Zenith Studio pieces
+    ('paint_zenith', 'build'),        # award plaques (+ studio kit kept as source art)
+    ('paint_zenith_lobby', 'build'),  # final level from the client's office painting + finale backdrop
     ('paint_ui', 'build'),            # UI art + exterior inspection backdrop
     ('finalize_textures', 'main'),    # multiple-of-4 padding for GPU compression
     ('levels', None),                 # level layouts (JSON)

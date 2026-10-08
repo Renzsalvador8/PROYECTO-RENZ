@@ -4,13 +4,16 @@ using UnityEngine;
 
 namespace TheTester
 {
-    /// <summary>FINAL LEVEL — Zenith Studio: a cinematic production studio, the reveal of the awards and the ending.</summary>
+    /// <summary>
+    /// FINAL LEVEL — Zenith Studio, painted after the studio's own concept art: a fixed, theatrical view of the
+    /// lobby. The camera opens on the glowing wall sign and pulls back to reveal the room while Jean Paul walks
+    /// in from behind the crates; the awards wait on two pedestals by the lounge.
+    /// </summary>
     public sealed class ZenithDirector : DirectorBase
     {
         private AwardsSequenceController _awards;
         private Interactable _awardsSpot;
-        private bool _revealed;
-        private float _revealX;
+        private SpriteRenderer _halo;
         public bool Finished { get; private set; }
         public AwardsSequenceController Awards => _awards;
         public override bool AllowPause => !Finished && (_awards == null || !_awards.Running);
@@ -33,39 +36,49 @@ namespace TheTester
             if (Progress.Chapter >= Chapter.ZenithStudio) Progress.NormalizeForContinue();
             BuildCamera(UIStyle.Midnight);
             BuildLevel("zenith");
-            float spawn = Level.MarkerX("spawn");
-            SpawnPlayer(spawn - 2.6f, true, new Color(0.9f, 0.93f, 1f));
-            Player.Face(1f, true);
+            SpawnPlayer(Level.MarkerX("spawn"), false, new Color(0.9f, 0.96f, 0.98f));
+            Player.Face(-1f, true);
             _awards = gameObject.AddComponent<AwardsSequenceController>();
             _awards.Init(this);
-            _revealX = Level.MarkerX("reveal");
+            _halo = Level.Get("sign_halo");
             CreateInteractables();
+            UI.SetHudVisible(false);
+            UI.SetTouchMode(TouchLayout.None);
+            Audio.PlayAmbience("amb_studio", 2f, 0.6f);
+            Audio.PlayMusic("music_title", 3f, 0.4f);
+            UI.SetLetterbox(1f, 0f);
+
+            // the reveal: start on the sign...
+            var sign = Level.Marker("reveal");
+            Cam.Cut(new Vector2(sign.X, sign.Y), 0.95f);
+            StartCoroutine(UI.FadeIn(2.0f));
+            yield return Wait(1.2f);
+            yield return UI.TitleCard(Lines.LocationZenith, null, 1.6f, 44, true);
+            // ...then pull back to the whole studio while he walks in
+            StartCoroutine(Cam.MoveTo(new Vector2(0f, Level.Data.CameraY), Level.Data.CameraSize, 5.0f / Mathf.Max(0.01f, CinematicSpeed), true));
+            yield return Wait(1.6f);
+            yield return Player.WalkTo(Level.MarkerX("entry"), 0.9f);
+            UI.SetLetterbox(0f, 1.0f);
             UI.SetHudVisible(true);
             UI.SetTests(Progress);
             UI.SetObjective(Lines.ObjAwardsArea);
             UI.SetTouchMode(TouchLayout.Walk);
-            Audio.PlayAmbience("amb_studio", 2f, 0.6f);
-            UI.SetLetterbox(1f, 0f);
-            StartCoroutine(UI.FadeIn(1.6f));
-            yield return Player.WalkTo(spawn + 0.8f, 0.9f);
-            yield return UI.TitleCard(Lines.LocationZenith, null, 1.5f, 44, true);
-            UI.SetLetterbox(0f, 1.0f);
             Player.InputEnabled = true;
         }
 
         private void CreateInteractables()
         {
-            foreach (var id in new[] { "desk", "storyboard", "poster_tester", "camera" })
+            foreach (var id in new[] { "storyboard", "sign", "desk", "reels" })
             {
                 var m = Level.Marker(id);
                 if (m == null) continue;
                 string key = id;
                 var it = Interactable.Create(id, m.X, Level.Data.GroundY, Lines.PromptObserve, m.Radius, () => Observe(key));
-                it.PromptHeight = 3.0f;
+                it.PromptHeight = 2.9f;
             }
             var a = Level.Marker("awards");
             _awardsSpot = Interactable.Create("awards", a.X, Level.Data.GroundY, Lines.PromptAward, a.Radius + 0.6f, ReceiveAward);
-            _awardsSpot.PromptHeight = 3.3f;
+            _awardsSpot.PromptHeight = 3.1f;
         }
 
         private IEnumerator Observe(string id)
@@ -76,27 +89,13 @@ namespace TheTester
             yield return Say(Lines.Observations[id]);
         }
 
+        /// <summary>The wall sign's back-light breathes, very slowly.</summary>
         private void Update()
         {
-            if (Player == null || _revealed) return;
-            if (Player.transform.position.x > _revealX)
-            {
-                _revealed = true;
-                StartCoroutine(Reveal());
-            }
-        }
-
-        /// <summary>The camera slowly widens and slides toward the two pedestals.</summary>
-        private IEnumerator Reveal()
-        {
-            Audio.PlayMusic("music_title", 4f, 0.3f);
-            float from = Cam.TargetOffsetX;
-            yield return Tween.Run(3.5f, k =>
-            {
-                Cam.TargetOffsetX = Mathf.Lerp(from, 2.2f, k);
-                Cam.Zoom(Mathf.Lerp(Cam.BaseSize, 5.9f, k));
-                Cam.SetVerticalOffset(Mathf.Lerp(0f, 0.45f, k));
-            }, Ease.InOutSine);
+            if (_halo == null) return;
+            var c = _halo.color;
+            c.a = 0.72f + 0.16f * Mathf.Sin(Time.time * 0.9f);
+            _halo.color = c;
         }
 
         private IEnumerator ReceiveAward()

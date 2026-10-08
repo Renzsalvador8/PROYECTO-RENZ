@@ -17,6 +17,8 @@ All narrative text and UI are in Spanish. Target play time for a first run is ab
 
 ## Quick start
 
+> **Guía en español paso a paso (jugar en Unity o publicar un link web): [Docs/COMO_PROBAR.md](Docs/COMO_PROBAR.md).**
+
 1. Install **Unity 6** (6000.0 LTS or newer) with **Web Build Support** if you want WebGL builds.
 2. Unity Hub ▸ *Add project from disk* ▸ select this repository's folder. The project targets 6000.0.47f1;
    any newer Unity 6 version opens it (accept the upgrade).
@@ -54,8 +56,8 @@ guardada** to reset the save.
 | **Test 01 — exterior inspection.** A painted 3/4 close-up. A real magnifying lens (masked, magnified copy of the painting) follows the mouse/finger. Rest it on headlights, wheels, bodywork, door alignment and grille; each completion writes a note in his notebook. Then, back in the showroom, he adjusts his moustache: *“Interesante…”* | ![](Docs/previews/04_exterior_inspection.jpg) |
 | **Test 02 — the detail test.** Inside the cabin. The notebook shows magnified crops of four details (Morse “H” dots on the wheel, double stitching, six vent slats, the 10:08 clock); find and click each with the lens over it. Decoys earn dry remarks. He re-checks the dashboard, checks a detail twice, and produces a much larger magnifier: *“Esto es sospechoso.”* | ![](Docs/previews/05_interior_detail_test.jpg) |
 | **Level 03 — the test drive (≈50 s).** Quito-inspired city with Cotopaxi on the horizon. Accelerate, brake, stop at the red light, change lanes around a delivery van (*“ENVÍOS RÁPIDOS (casi siempre)”*), respect the 30 km/h school zone, park inside the box. No crashes: an automatic emergency brake (which he finds annoying) prevents collisions. Ends on a silent close-up: he adjusts his moustache, turns to the camera, raises an eyebrow, a reluctant smile. **PRUEBAS COMPLETADAS.** | ![](Docs/previews/07_test_drive.jpg) |
-| **Final level — Zenith Studio.** A dark cinematic production studio: editing desk with timeline and grading wheels, cinema camera, softbox, storyboards (of this very game), framed posters, the backlit Zenith logo. The camera widens to reveal two pedestals: **LUX Grand Prix** and **EFFIE Ecuador Bronze**. Press E twice to receive them. | ![](Docs/previews/10_awards_stage.jpg) |
-| **Finale.** The front-facing close-up from the reference image of him holding both awards. He looks at one, then the other, raises an eyebrow, a long awkward pause… and the tiniest approving smile. End screen: **ZENITH STUDIO · CREATE BEYOND REAL · THE TESTER — THE ULTIMATE TEST**, with *JUGAR DE NUEVO* and *VOLVER AL MENÚ*. | ![](Docs/previews/11_finale_smile.jpg) |
+| **Final level — Zenith Studio.** Built from Zenith Studio's own concept painting of its office at night: a fixed, theatrical view of the lobby (windows on the city, lounge, reception desk with monitors, storyboard boards, film reels, the backlit **Z. Zenith Studio** sign, redrawn crisply from the supplied logo). The camera opens tight on the glowing sign and pulls back to reveal the room while Jean Paul walks in from behind the crates. Optional observations: storyboards, sign, desk, film reels. Two concrete pedestals hold the **LUX Grand Prix** and the **EFFIE Ecuador Bronze**; press E twice to receive them. | ![](Docs/previews/09_zenith_studio.jpg) |
+| **Finale.** The front-facing close-up from the reference image of him holding both awards, in front of the defocused studio with the Zenith sign at his side. He looks at one, then the other, raises an eyebrow, a long awkward pause… and the tiniest approving smile. End screen: **ZENITH STUDIO · CREATE BEYOND REAL · THE TESTER — THE ULTIMATE TEST**, with *JUGAR DE NUEVO* and *VOLVER AL MENÚ*. | ![](Docs/previews/11_finale_smile.jpg) |
 
 Systems: main menu (play / continue / instructions / settings / credits), pause menu (resume / restart level /
 settings / instructions / main menu), audio settings (music, ambience, effects), fullscreen toggle, objective
@@ -68,7 +70,8 @@ vignette, touch controls, and an automatic save at every checkpoint (*CONTINUAR*
 
 ```
 Assets/
-  References/                 your reference images (character sheets, awards, props, Zenith logo)
+  References/                 your reference images (character sheets, awards, props, Hyundai + Zenith logos,
+                              Zenith office concept painting)
   TheTesterGame/
     Scenes/                   00_MainMenu · 01_Showroom · 02_TestDrive · 03_ZenithStudio
     Scripts/
@@ -88,10 +91,12 @@ Assets/
 Packages/manifest.json        Input System, uGUI, Test Framework, 2D Sprite
 Tools/
   ArtPipeline/                Python: cuts the character rig from the reference sheet, paints every scene
-  AudioPipeline/              Python: synthesises all music and sound effects
+  AudioPipeline/              Python: cuts the music cues from the soundtrack, synthesises ambiences and effects
   CompileCheck/               dotnet harness: compiles the C# against Unity reference assemblies + runs Core tests
   UnityMeta/                  writes .meta files with stable GUIDs and the scene files
 Docs/previews/                composited previews of key moments
+Docs/COMO_PROBAR.md           how to test (Spanish): Unity locally, or a web link built by GitHub Actions
+.github/workflows/webgl.yml   CI: compile check + Core tests always; Unity WebGL build + GitHub Pages with a licence
 ```
 
 ### How it is built
@@ -149,7 +154,17 @@ Upload the contents of `Builds/WebGL/` and embed it, for example:
 The page fills its frame; the game always keeps a 16:9 composition (bars in the midnight blue palette on other
 shapes) and switches to touch controls on phones and tablets. For faster loads you can serve Brotli instead of
 Gzip (*Player Settings ▸ Publishing Settings*) if your server sets `Content-Encoding` headers. Total texture data
-is about 39 M texels (~39 MB in GPU memory with DXT compression); audio is ~2 MB.
+is about 38 M texels (~38 MB in GPU memory with DXT compression); audio is ~3.4 MB (the music is about 2.3 MB).
+
+### Automatic build and web link (GitHub Actions)
+
+`.github/workflows/webgl.yml` runs on every push. Without any setup it runs the Core tests and the compile checks.
+With a free Unity Personal licence stored as repository secrets (`UNITY_LICENSE` = contents of the `.ulf` file,
+`UNITY_EMAIL`, `UNITY_PASSWORD`) it also builds the WebGL player with Unity 6 (GameCI, using
+`TheTesterBuild.BuildWebGLBatch`), attaches it to the run as the `TheTester-WebGL` artifact and, once
+*Settings ▸ Pages ▸ Source* is set to *GitHub Actions*, publishes it to
+`https://renzsalvador8.github.io/PROYECTO-RENZ/`. It then runs the EditMode and PlayMode suites inside Unity.
+Without the secrets the Unity jobs are skipped, not failed. Step-by-step (Spanish): `Docs/COMO_PROBAR.md`.
 
 ---
 
@@ -176,7 +191,8 @@ is about 39 M texels (~39 MB in GPU memory with DXT compression); audio is ~2 MB
 ### Verification status (please read)
 
 This project was produced in a cloud container **without the Unity Editor** (Unity's download servers were not
-reachable), so nothing was run inside Unity and no WebGL build was produced there. What *was* verified:
+reachable), so nothing was run inside Unity and no WebGL build was produced there. The GitHub Actions workflow
+above is the quickest way to get the first real Unity build and test run. What *was* verified:
 the C# compiles cleanly against Unity reference assemblies (both input back-ends, editor and test code); all
 40 Core tests pass; data files and asset references are consistent; and the art/composition was reviewed through
 the Python compositor. The first run in Unity 6 is therefore the real integration test: open the project, let the
@@ -192,7 +208,8 @@ under URP 2D), and builds scenes from code to avoid hand-authored editor assets.
 ```bash
 pip install numpy scipy pillow skia-python
 cd Tools/ArtPipeline && python3 build_all.py      # ~2 min: rig, clips, cars, every scene, UI, levels
-cd Tools/AudioPipeline && python3 synth.py        # ~20 s: music, ambiences, effects (needs ffmpeg)
+cd Tools/AudioPipeline && python3 synth.py        # ~20 s: ambiences and effects (needs ffmpeg)
+cd Tools/AudioPipeline && python3 soundtrack.py   # ~10 s: the 4 music cues, cut from source/zenith_theme_master.ogg
 python3 Tools/UnityMeta/generate_meta.py          # .meta files for any new asset
 ```
 
@@ -203,8 +220,14 @@ poses exactly as the game lays them out — handy for art direction without open
 
 ## Artwork and content to replace for production
 
-* **Hyundai logo and wordmark** are stylised placeholders drawn for the game (slanted H in an ellipse, generic
-  letterspaced wordmark). Replace with official brand assets.
+* **Hyundai logo**: the client-supplied emblem + wordmark (`References/ref_hyundai_logo.jpg`, 431×350) is used on
+  the showroom brand wall, the dealership fascia (title screen and arrival), the garage exit sign and as a chrome
+  badge on the IONIQ 5. It was cleaned and upscaled from a small JPEG; a vector (SVG/AI) master would make the
+  large brand wall perfectly sharp.
+* **Zenith Studio**: the final level is the supplied office concept painting (1376×768, upscaled to 2048 px wide,
+  ceiling extended, the two painted pedestals painted out, crates cut out as a foreground layer). A higher
+  resolution or layered version of the painting would sharpen the camera reveal. The sign and the end screen use
+  the supplied cream logo.
 * **The IONIQ 5** is an original stylised construction (3D-projected in the art pipeline), recognisable but not a
   licensed model; a professional illustration of the official model would raise fidelity.
 * **Jean Paul's rig** was separated programmatically from the 1376×768 turnaround sheet. A layered master (PSB with
@@ -213,7 +236,13 @@ poses exactly as the game lays them out — handy for art direction without open
 * **Environments** (showroom, cabin, city, studio) are procedurally painted in a consistent gouache/ink style; a
   painter could replace any piece 1:1 (same file names/sizes) without code changes.
 * **The awards** are cut from the provided reference sheet.
-* **Music and sound** are original procedural syntheses (no samples, no licensed music). No voice acting.
+* **Music**: the client's soundtrack (2:39, generated with Suno), cut on its beat grid into four cues
+  (`Tools/AudioPipeline/soundtrack.py`): the intro as the looping theme (menu, showroom, studio), the main groove
+  as the drive loop, the post-breakdown hit as the *PRUEBAS COMPLETADAS* sting, and the climax with its natural
+  ending for the finale and end screen. Commercial use depends on the Suno plan the track was generated under;
+  please confirm the rights before publishing. If you hear vocals that clash with the subtitles, other sections
+  can be chosen by editing the times in `soundtrack.py`.
+* **Sound effects and ambiences** are original procedural syntheses (no samples). No voice acting.
 * Fonts: Cormorant Garamond and Jost, SIL Open Font License (licences included next to the fonts).
 
 © Zenith Studio. Character and story created by Zenith Studio for Hyundai.

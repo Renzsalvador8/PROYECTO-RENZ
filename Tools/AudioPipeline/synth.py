@@ -1,6 +1,7 @@
-"""Procedural sound design for The Tester. Run `python3 synth.py` to regenerate every clip as OGG.
+"""Procedural sound design for The Tester. Run `python3 synth.py` to regenerate every SFX and ambience clip as OGG.
 
-Nothing here samples or imitates commercial music; all sounds are synthesised from scratch.
+Nothing here samples or imitates commercial music; all sounds are synthesised from scratch. The music cues come
+from the client's soundtrack (see soundtrack.py); `build(with_music=True)` writes the synthesised fallback themes.
 """
 import os, subprocess, tempfile
 import numpy as np
@@ -487,7 +488,7 @@ def sting_complete():
     return norm(reverb(out, wet=0.35, d=2.6)[: int(4.0 * SR)], 0.5)
 
 
-def build():
+def build(with_music=False):
     clips = {
         'Ambience/amb_showroom': (amb_showroom, 3, True), 'Ambience/amb_studio': (amb_studio, 3, True),
         'Ambience/amb_city': (amb_city, 3, True),
@@ -503,9 +504,14 @@ def build():
         'Sfx/trophy_lux': (lambda: trophy('lux'), 4, True), 'Sfx/trophy_effie': (lambda: trophy('effie'), 4, True),
         'Sfx/applause': (applause, 4, True), 'Sfx/stache': (stache, 4, True), 'Sfx/sigh': (sigh, 4, True),
         'Sfx/big_magnifier': (big_magnifier, 4, True), 'Sfx/whoosh': (whoosh, 4, True), 'Sfx/traffic_beep': (tl_beep, 4, True),
-        'Music/music_title': (music_title, 4, False), 'Music/music_drive': (music_drive, 4, False),
-        'Music/music_finale': (music_finale, 4, False), 'Music/sting_complete': (sting_complete, 4, False),
+        # Music/* now comes from the client's soundtrack (soundtrack.py). The synthesised themes below are kept
+        # as an offline fallback: build(with_music=True) writes them instead.
     }
+    if with_music:
+        clips.update({
+            'Music/music_title': (music_title, 4, False), 'Music/music_drive': (music_drive, 4, False),
+            'Music/music_finale': (music_finale, 4, False), 'Music/sting_complete': (sting_complete, 4, False),
+        })
     for name, (fn, q, mono) in clips.items():
         x = fn()
         p = write(name, x, q, mono)

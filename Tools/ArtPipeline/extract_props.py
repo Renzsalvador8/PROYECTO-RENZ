@@ -29,7 +29,7 @@ def trimmed(arr, pad=3):
     return arr[max(ys.min() - pad, 0):ys.max() + pad + 1, max(xs.min() - pad, 0):xs.max() + pad + 1]
 
 
-RUNTIME = {'Props/award_lux_grand_prix', 'Props/award_effie_bronze', 'Props/chair'}
+RUNTIME = {'Props/award_lux_grand_prix', 'Props/award_effie_bronze'}
 
 
 def save(arr, name):
@@ -66,7 +66,7 @@ def build():
     for name, box in PROP_BOXES.items():
         k = keyed(PROPS, box, t_bg=20, t_fg=55, keep_largest=(name != 'sparkles'))
         out[name] = save(k, 'Props/' + name)
-    # Zenith logo: cream mark on transparent (tinted at runtime)
+    # Zenith wall lockup (disc sign with the wordmark), keyed from the original reference
     logo = np.asarray(Image.open(ref('ref_zenith_logo.png')).convert('RGBA')).astype(np.float32)
     lum = logo[:, :, :3].mean(axis=2)
     a = smoothstep(60, 200, lum) * (logo[:, :, 3] / 255.0)
@@ -80,11 +80,9 @@ def build():
     img = Image.fromarray(np.clip(lock, 0, 255).astype(np.uint8), 'RGBA')
     img = img.resize((img.width // 2, img.height // 2), Image.LANCZOS)
     save_png(img, 'UI/zenith_logo_lockup', root=ART_SRC)
-    # mark only (left circle)
-    mark = cream[:, : int(w * 0.43)]
-    mi = Image.fromarray(np.clip(trimmed(mark, 8), 0, 255).astype(np.uint8), 'RGBA')
-    mi = mi.resize((mi.width // 2, mi.height // 2), Image.LANCZOS)
-    save_png(mi, 'UI/zenith_logo_mark', root=ART_SRC)
+    # mark only: the client's cream "Z." (ref_zenith_logo_cream.png), cleaned by logos.py
+    import logos
+    save_png(logos.mark('zenith', 290, (255, 255, 235)), 'UI/zenith_logo_mark', root=ART_SRC)
     return out
 
 
