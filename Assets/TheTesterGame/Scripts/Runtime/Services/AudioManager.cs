@@ -113,10 +113,16 @@ namespace TheTester
             _fades[s] = StartCoroutine(FadeBase(s, target, time, stopAtEnd));
         }
 
+        // The loop is inline (not a nested Tween.Run) so that stopping this coroutine really stops the fade.
         private IEnumerator FadeBase(AudioSource s, float target, float time, bool stopAtEnd)
         {
             float from = _baseVolume.TryGetValue(s, out float v) ? v : 0f;
-            yield return Tween.Run(time, k => _baseVolume[s] = Mathf.Lerp(from, target, k), Ease.Linear, unscaled: true);
+            for (float t = 0f; t < time; t += Time.unscaledDeltaTime)
+            {
+                _baseVolume[s] = Mathf.Lerp(from, target, t / time);
+                yield return null;
+            }
+            _baseVolume[s] = target;
             if (stopAtEnd && target <= 0f) s.Stop();
             _fades[s] = null;
         }

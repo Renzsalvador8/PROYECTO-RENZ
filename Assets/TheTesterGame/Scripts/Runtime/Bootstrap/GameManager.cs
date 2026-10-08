@@ -69,6 +69,7 @@ namespace TheTester
             CurrentScene = scene;
             SetPaused(false);
             UIManager.I.ResetForScene();
+            if (AudioManager.I != null) AudioManager.I.ResetDuck();   // again: the old scene may duck while the new one loads
             switch (scene)
             {
                 case GameScene.Showroom: Director = host.AddComponent<ShowroomDirector>(); break;

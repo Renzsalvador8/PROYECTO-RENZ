@@ -236,7 +236,7 @@ poses exactly as the game lays them out — handy for art direction without open
 * **Environments** (showroom, cabin, city, studio) are procedurally painted in a consistent gouache/ink style; a
   painter could replace any piece 1:1 (same file names/sizes) without code changes.
 * **The awards** are cut from the provided reference sheet.
-* **Music**: the client's soundtrack (2:39, generated with Suno), cut on its beat grid into four cues
+* **Music**: the client's soundtrack (2:39, generated with Suno), cut into four cues with beat-aligned, measured loop points
   (`Tools/AudioPipeline/soundtrack.py`): the intro as the looping theme (menu, showroom, studio), the main groove
   as the drive loop, the post-breakdown hit as the *PRUEBAS COMPLETADAS* sting, and the climax with its natural
   ending for the finale and end screen. Commercial use depends on the Suno plan the track was generated under;
