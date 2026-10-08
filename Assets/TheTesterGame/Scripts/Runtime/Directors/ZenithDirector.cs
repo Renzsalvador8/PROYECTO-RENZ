@@ -48,12 +48,11 @@ namespace TheTester
             Audio.PlayMusic("music_title", 3f, 0.4f);
             UI.SetLetterbox(1f, 0f);
 
-            // the reveal: start on the sign...
+            // the reveal: start on the glowing "Zenith Studio" sign (it is the location title)...
             var sign = Level.Marker("reveal");
             Cam.Cut(new Vector2(sign.X, sign.Y), 0.95f);
-            StartCoroutine(UI.FadeIn(2.0f));
-            yield return Wait(1.2f);
-            yield return UI.TitleCard(Lines.LocationZenith, null, 1.6f, 44, true);
+            yield return UI.FadeIn(2.0f);
+            yield return Wait(2.2f);
             // ...then pull back to the whole studio while he walks in
             StartCoroutine(Cam.MoveTo(new Vector2(0f, Level.Data.CameraY), Level.Data.CameraSize, 5.0f / Mathf.Max(0.01f, CinematicSpeed), true));
             yield return Wait(1.6f);

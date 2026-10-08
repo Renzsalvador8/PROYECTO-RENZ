@@ -185,7 +185,7 @@ def zenith():
     L.marker('awards', round((px1 + px2) / 2, 3), prompt='PRESIONA E PARA RECIBIR EL PREMIO', radius=1.6)
     L.marker('award_lux', px1)
     L.marker('award_effie', px2)
-    L.marker('storyboard', round(Z.world_x(650), 3), prompt='PRESIONA E PARA OBSERVAR', radius=0.9)
+    L.marker('storyboard', round(Z.world_x(650), 3), prompt='PRESIONA E PARA OBSERVAR', radius=0.5)   # clear of the Effie pedestal
     L.marker('sign', round(sx, 3), prompt='PRESIONA E PARA OBSERVAR', radius=0.9)
     L.marker('desk', round(Z.world_x(930), 3), prompt='PRESIONA E PARA OBSERVAR', radius=0.9)
     L.marker('reels', round(Z.world_x(1180), 3), prompt='PRESIONA E PARA OBSERVAR', radius=0.9)

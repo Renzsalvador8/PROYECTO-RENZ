@@ -8,9 +8,11 @@ mkdir -p .refs
 fetch() {
   local id=$1 ver=$2
   if [ ! -d ".refs/$id" ]; then
-    curl -sSL -o ".refs/$id.nupkg" "https://api.nuget.org/v3-flatcontainer/$id/$ver/$id.$ver.nupkg"
+    curl -fsSL -o ".refs/$id.nupkg" "https://api.nuget.org/v3-flatcontainer/$id/$ver/$id.$ver.nupkg"
     mkdir -p ".refs/$id" && (cd ".refs/$id" && unzip -q -o "../$id.nupkg")
   fi
+  # NuGet packages store their files without permission bits: make them readable for non-root users (CI runners)
+  chmod -R u+rwX,go+rX ".refs/$id"
 }
 fetch unityengine.modules 2021.3.33
 fetch unity3d.unityengine.ui 2020.3.21
