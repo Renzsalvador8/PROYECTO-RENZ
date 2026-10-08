@@ -2,11 +2,11 @@
 
 Run `python3 soundtrack.py [path/to/master.wav|ogg]` to rebuild the four music cues. The tempo drifts a little
 (about 114-118 BPM), so loop lengths were measured, not computed: each loop starts on a beat and ends where the
-onset pattern best matches its start (cross-correlation of onset envelopes), so the groove carries across the
-seam. Each cue is level-matched to the cue it replaced so every call-site volume in the game keeps working:
+drum pattern over the crossfade window (the only stretch where both copies play) best matches its start
+(cross-correlation of the percussive onset envelope), so the groove carries across the seam. Each cue is level-matched to the cue it replaced so every call-site volume in the game keeps working:
 
-  music_title     intro section (0.79-33.464 s), seamless loop   menu, arrival, showroom bed, Zenith Studio
-  music_drive     main groove (47.711-80.744 s), seamless loop   test drive (under the motor and road noise)
+  music_title     intro section (0.79-33.42 s), seamless loop    menu, arrival, showroom bed, Zenith Studio
+  music_drive     main groove (47.711-80.68 s), seamless loop    test drive (under the motor and road noise)
   sting_complete  re-entry hit after the breakdown (102.56 s)   "PRUEBAS COMPLETADAS"
   music_finale    climax and natural ending (102.56-158.82 s)   awards finale and end screen
 
@@ -24,8 +24,8 @@ MASTER = os.path.join(HERE, 'source', 'zenith_theme_master.ogg')
 
 # name: (start s, end s, crossfade s for loops or None, target integrated loudness LUFS, fade-out s)
 CUES = {
-    'Music/music_title': (0.79, 33.464, 2.0, -19.1, 0.0),
-    'Music/music_drive': (47.711, 80.744, 1.5, -17.5, 0.0),
+    'Music/music_title': (0.79, 33.42, 2.0, -19.1, 0.0),
+    'Music/music_drive': (47.711, 80.68, 1.5, -17.5, 0.0),
     'Music/sting_complete': (102.56, 107.06, None, -18.4, 1.5),
     'Music/music_finale': (102.56, 158.82, None, -18.7, 0.4),
 }
