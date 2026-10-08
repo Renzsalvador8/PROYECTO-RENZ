@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Compile-checks the editor tools and the EditMode/PlayMode tests against Unity 2021 editor reference assemblies. -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <AssemblyName>TheTester.Editor.Check</AssemblyName>
+    <OutputPath>bin/editor/</OutputPath>
+    <BaseIntermediateOutputPath>obj/editor/</BaseIntermediateOutputPath>
+    <DefineConstants>UNITY_EDITOR;UNITY_INCLUDE_TESTS;TT_INPUT_SYSTEM;ENABLE_INPUT_SYSTEM;UNITY_2021_3_OR_NEWER</DefineConstants>
+    <NoWarn>CS0649;CS0414</NoWarn>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../Assets/TheTesterGame/Scripts/Core/**/*.cs" />
+    <Compile Include="../../Assets/TheTesterGame/Scripts/Runtime/**/*.cs" />
+    <Compile Include="../../Assets/TheTesterGame/Scripts/Editor/**/*.cs" />
+    <Compile Include="../../Assets/TheTesterGame/Tests/**/*.cs" />
+    <Compile Include="InputSystemStub.cs" />
+    <Compile Include="UnityTestStubs.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include=".refs/unityengine.modules/lib/netstandard2.0/*.dll" Exclude=".refs/unityengine.modules/lib/netstandard2.0/UnityEngine.dll" Private="false" />
+    <Reference Include=".refs/unityengine.modules/lib/netstandard2.0/UnityEngine.dll" Private="false" />
+    <Reference Include=".refs/unity3d.unityengine.ui/lib/UnityEngine.UI.dll" Private="false" />
+    <Reference Include=".refs/unity3d.sdk/lib/UnityEditor.dll" Private="false" />
+    <PackageReference Include="NUnit" Version="3.14.0" />
+  </ItemGroup>
+</Project>

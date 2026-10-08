@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Compile-checks the Unity runtime scripts without the Unity Editor, against Unity reference assemblies from NuGet
+    (Unity 2021.3 module stubs + UI 2020.3). Run ./fetch_refs.sh first, then:
+      dotnet build Tools/CompileCheck/Runtime.csproj -p:TTDefines="TT_INPUT_SYSTEM;ENABLE_INPUT_SYSTEM"
+  -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <AssemblyName>TheTester.Runtime.Check</AssemblyName>
+    <OutputPath>bin/runtime/</OutputPath>
+    <BaseIntermediateOutputPath>obj/runtime/</BaseIntermediateOutputPath>
+    <TTDefines Condition="'$(TTDefines)' == ''">ENABLE_LEGACY_INPUT_MANAGER</TTDefines>
+    <DefineConstants>$(TTDefines);UNITY_2021_3_OR_NEWER;UNITY_6000_0_OR_NEWER</DefineConstants>
+    <NoWarn>CS0649;CS0414</NoWarn>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <DisableImplicitFrameworkReferences>false</DisableImplicitFrameworkReferences>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../Assets/TheTesterGame/Scripts/Core/**/*.cs" />
+    <Compile Include="../../Assets/TheTesterGame/Scripts/Runtime/**/*.cs" />
+    <Compile Include="InputSystemStub.cs" Condition="$(TTDefines.Contains('TT_INPUT_SYSTEM'))" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include=".refs/unityengine.modules/lib/netstandard2.0/*.dll" Exclude=".refs/unityengine.modules/lib/netstandard2.0/UnityEngine.dll" Private="false" />
+    <Reference Include=".refs/unityengine.modules/lib/netstandard2.0/UnityEngine.dll" Private="false" />
+    <Reference Include=".refs/unity3d.unityengine.ui/lib/UnityEngine.UI.dll" Private="false" />
+  </ItemGroup>
+</Project>
