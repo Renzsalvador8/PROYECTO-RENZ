@@ -1,0 +1,207 @@
+{
+ "name": "tester_front",
+ "ppu": 250.0,
+ "atlas": "Art/Character/tester_front_atlas",
+ "atlasSize": [
+  1024,
+  1024
+ ],
+ "sprites": {
+  "body": {
+   "rect": [
+    6,
+    488,
+    200,
+    530
+   ],
+   "pivot": [
+    0.545,
+    0.02453
+   ]
+  },
+  "head_neutral": {
+   "rect": [
+    212,
+    897,
+    83,
+    121
+   ],
+   "pivot": [
+    0.57831,
+    0.07438
+   ]
+  },
+  "head_brow_one": {
+   "rect": [
+    301,
+    897,
+    83,
+    121
+   ],
+   "pivot": [
+    0.57831,
+    0.07438
+   ]
+  },
+  "head_brows_up": {
+   "rect": [
+    390,
+    897,
+    83,
+    121
+   ],
+   "pivot": [
+    0.57831,
+    0.07438
+   ]
+  },
+  "head_smile": {
+   "rect": [
+    479,
+    897,
+    83,
+    121
+   ],
+   "pivot": [
+    0.57831,
+    0.07438
+   ]
+  },
+  "head_smile_brow": {
+   "rect": [
+    568,
+    897,
+    83,
+    121
+   ],
+   "pivot": [
+    0.57831,
+    0.07438
+   ]
+  },
+  "head_look_l": {
+   "rect": [
+    657,
+    897,
+    83,
+    121
+   ],
+   "pivot": [
+    0.57831,
+    0.07438
+   ]
+  },
+  "head_look_r": {
+   "rect": [
+    746,
+    897,
+    83,
+    121
+   ],
+   "pivot": [
+    0.57831,
+    0.07438
+   ]
+  },
+  "head_look_dl": {
+   "rect": [
+    835,
+    897,
+    83,
+    121
+   ],
+   "pivot": [
+    0.57831,
+    0.07438
+   ]
+  },
+  "head_look_dr": {
+   "rect": [
+    924,
+    897,
+    83,
+    121
+   ],
+   "pivot": [
+    0.57831,
+    0.07438
+   ]
+  },
+  "head_frown": {
+   "rect": [
+    6,
+    361,
+    83,
+    121
+   ],
+   "pivot": [
+    0.57831,
+    0.07438
+   ]
+  },
+  "head_blink": {
+   "rect": [
+    95,
+    361,
+    83,
+    121
+   ],
+   "pivot": [
+    0.57831,
+    0.07438
+   ]
+  }
+ },
+ "bones": [
+  {
+   "name": "root",
+   "parent": "",
+   "pos": [
+    0,
+    0
+   ]
+  },
+  {
+   "name": "body",
+   "parent": "root",
+   "pos": [
+    0,
+    0
+   ]
+  },
+  {
+   "name": "head",
+   "parent": "body",
+   "pos": [
+    0.028,
+    1.968
+   ]
+  }
+ ],
+ "slots": [
+  {
+   "name": "body",
+   "bone": "body",
+   "sprite": "body",
+   "order": 0,
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ]
+  },
+  {
+   "name": "head",
+   "bone": "head",
+   "sprite": "head_neutral",
+   "order": 10,
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ]
+  }
+ ]
+}

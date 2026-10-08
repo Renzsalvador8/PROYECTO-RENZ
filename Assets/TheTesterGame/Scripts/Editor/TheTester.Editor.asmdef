@@ -1,0 +1,19 @@
+{
+    "name": "TheTester.Editor",
+    "rootNamespace": "TheTester.EditorTools",
+    "references": [
+        "TheTester.Core",
+        "TheTester.Runtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

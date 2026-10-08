@@ -1,0 +1,539 @@
+{
+ "name": "tester_side",
+ "ppu": 250.0,
+ "atlas": "Art/Character/tester_side_atlas",
+ "atlasSize": [
+  1024,
+  512
+ ],
+ "sprites": {
+  "torso": {
+   "rect": [
+    8,
+    240,
+    120,
+    264
+   ],
+   "pivot": [
+    0.41667,
+    0.01136
+   ]
+  },
+  "magnifier_big": {
+   "rect": [
+    136,
+    297,
+    115,
+    207
+   ],
+   "pivot": [
+    0.5,
+    0.24444
+   ]
+  },
+  "thigh": {
+   "rect": [
+    259,
+    329,
+    75,
+    175
+   ],
+   "pivot": [
+    0.41333,
+    0.85143
+   ]
+  },
+  "upperarm": {
+   "rect": [
+    342,
+    359,
+    71,
+    145
+   ],
+   "pivot": [
+    0.46479,
+    0.77931
+   ]
+  },
+  "shin": {
+   "rect": [
+    421,
+    361,
+    61,
+    143
+   ],
+   "pivot": [
+    0.52459,
+    0.86014
+   ]
+  },
+  "forearm": {
+   "rect": [
+    490,
+    381,
+    78,
+    123
+   ],
+   "pivot": [
+    0.38462,
+    0.84553
+   ]
+  },
+  "head": {
+   "rect": [
+    576,
+    399,
+    91,
+    105
+   ],
+   "pivot": [
+    0.37363,
+    0.04762
+   ]
+  },
+  "magnifier": {
+   "rect": [
+    675,
+    401,
+    57,
+    103
+   ],
+   "pivot": [
+    0.5,
+    0.24078
+   ]
+  },
+  "hand": {
+   "rect": [
+    740,
+    442,
+    50,
+    62
+   ],
+   "pivot": [
+    0.44,
+    0.80645
+   ]
+  },
+  "shoe": {
+   "rect": [
+    798,
+    462,
+    98,
+    42
+   ],
+   "pivot": [
+    0.31633,
+    0.85714
+   ]
+  },
+  "stache": {
+   "rect": [
+    904,
+    479,
+    30,
+    25
+   ],
+   "pivot": [
+    0.46667,
+    0.52
+   ]
+  },
+  "brow": {
+   "rect": [
+    942,
+    488,
+    24,
+    16
+   ],
+   "pivot": [
+    0.375,
+    0.4375
+   ]
+  }
+ },
+ "bones": [
+  {
+   "name": "root",
+   "parent": "",
+   "pos": [
+    0,
+    0
+   ]
+  },
+  {
+   "name": "hip",
+   "parent": "root",
+   "pos": [
+    -0.016,
+    1.036
+   ]
+  },
+  {
+   "name": "torso",
+   "parent": "hip",
+   "pos": [
+    0,
+    0
+   ]
+  },
+  {
+   "name": "head",
+   "parent": "torso",
+   "pos": [
+    0.016,
+    0.96
+   ]
+  },
+  {
+   "name": "brow",
+   "parent": "head",
+   "pos": [
+    0.136,
+    0.22
+   ]
+  },
+  {
+   "name": "stache",
+   "parent": "head",
+   "pos": [
+    0.16,
+    0.112
+   ]
+  },
+  {
+   "name": "shoulder_f",
+   "parent": "torso",
+   "pos": [
+    -0.068,
+    0.8
+   ]
+  },
+  {
+   "name": "elbow_f",
+   "parent": "shoulder_f",
+   "pos": [
+    0.016,
+    -0.36
+   ]
+  },
+  {
+   "name": "wrist_f",
+   "parent": "elbow_f",
+   "pos": [
+    0.104,
+    -0.364
+   ]
+  },
+  {
+   "name": "prop_f",
+   "parent": "wrist_f",
+   "pos": [
+    0.02,
+    -0.108
+   ],
+   "rot": 180
+  },
+  {
+   "name": "shoulder_b",
+   "parent": "torso",
+   "pos": [
+    -0.056,
+    0.8
+   ]
+  },
+  {
+   "name": "elbow_b",
+   "parent": "shoulder_b",
+   "pos": [
+    0.016,
+    -0.36
+   ]
+  },
+  {
+   "name": "wrist_b",
+   "parent": "elbow_b",
+   "pos": [
+    0.104,
+    -0.364
+   ]
+  },
+  {
+   "name": "prop_b",
+   "parent": "wrist_b",
+   "pos": [
+    0.02,
+    -0.108
+   ],
+   "rot": 180
+  },
+  {
+   "name": "thigh_f",
+   "parent": "hip",
+   "pos": [
+    0,
+    0
+   ]
+  },
+  {
+   "name": "knee_f",
+   "parent": "thigh_f",
+   "pos": [
+    0.0,
+    -0.464
+   ]
+  },
+  {
+   "name": "ankle_f",
+   "parent": "knee_f",
+   "pos": [
+    0.0,
+    -0.448
+   ]
+  },
+  {
+   "name": "thigh_b",
+   "parent": "hip",
+   "pos": [
+    0.016,
+    0
+   ]
+  },
+  {
+   "name": "knee_b",
+   "parent": "thigh_b",
+   "pos": [
+    0.0,
+    -0.464
+   ]
+  },
+  {
+   "name": "ankle_b",
+   "parent": "knee_b",
+   "pos": [
+    0.0,
+    -0.448
+   ]
+  }
+ ],
+ "slots": [
+  {
+   "name": "hand_b",
+   "bone": "wrist_b",
+   "sprite": "hand",
+   "order": 10,
+   "tint": [
+    0.62,
+    0.62,
+    0.68,
+    1.0
+   ]
+  },
+  {
+   "name": "prop_b",
+   "bone": "prop_b",
+   "sprite": "",
+   "order": 9,
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "hidden": 1
+  },
+  {
+   "name": "forearm_b",
+   "bone": "elbow_b",
+   "sprite": "forearm",
+   "order": 20,
+   "tint": [
+    0.62,
+    0.62,
+    0.68,
+    1.0
+   ]
+  },
+  {
+   "name": "upperarm_b",
+   "bone": "shoulder_b",
+   "sprite": "upperarm",
+   "order": 30,
+   "tint": [
+    0.62,
+    0.62,
+    0.68,
+    1.0
+   ]
+  },
+  {
+   "name": "shoe_b",
+   "bone": "ankle_b",
+   "sprite": "shoe",
+   "order": 40,
+   "tint": [
+    0.62,
+    0.62,
+    0.68,
+    1.0
+   ]
+  },
+  {
+   "name": "shin_b",
+   "bone": "knee_b",
+   "sprite": "shin",
+   "order": 50,
+   "tint": [
+    0.62,
+    0.62,
+    0.68,
+    1.0
+   ]
+  },
+  {
+   "name": "thigh_b",
+   "bone": "thigh_b",
+   "sprite": "thigh",
+   "order": 60,
+   "tint": [
+    0.62,
+    0.62,
+    0.68,
+    1.0
+   ]
+  },
+  {
+   "name": "shoe_f",
+   "bone": "ankle_f",
+   "sprite": "shoe",
+   "order": 70,
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ]
+  },
+  {
+   "name": "shin_f",
+   "bone": "knee_f",
+   "sprite": "shin",
+   "order": 80,
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ]
+  },
+  {
+   "name": "thigh_f",
+   "bone": "thigh_f",
+   "sprite": "thigh",
+   "order": 90,
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ]
+  },
+  {
+   "name": "torso",
+   "bone": "torso",
+   "sprite": "torso",
+   "order": 100,
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ]
+  },
+  {
+   "name": "head",
+   "bone": "head",
+   "sprite": "head",
+   "order": 110,
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ]
+  },
+  {
+   "name": "brow",
+   "bone": "brow",
+   "sprite": "brow",
+   "order": 111,
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ]
+  },
+  {
+   "name": "stache",
+   "bone": "stache",
+   "sprite": "stache",
+   "order": 112,
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ]
+  },
+  {
+   "name": "prop_f",
+   "bone": "prop_f",
+   "sprite": "",
+   "order": 119,
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ],
+   "hidden": 1
+  },
+  {
+   "name": "hand_f",
+   "bone": "wrist_f",
+   "sprite": "hand",
+   "order": 120,
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ]
+  },
+  {
+   "name": "forearm_f",
+   "bone": "elbow_f",
+   "sprite": "forearm",
+   "order": 130,
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ]
+  },
+  {
+   "name": "upperarm_f",
+   "bone": "shoulder_f",
+   "sprite": "upperarm",
+   "order": 140,
+   "tint": [
+    1,
+    1,
+    1,
+    1
+   ]
+  }
+ ]
+}

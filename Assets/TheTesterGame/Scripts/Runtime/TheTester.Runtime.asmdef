@@ -1,0 +1,24 @@
+{
+    "name": "TheTester.Runtime",
+    "rootNamespace": "TheTester",
+    "references": [
+        "TheTester.Core",
+        "Unity.InputSystem",
+        "UnityEngine.UI"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.inputsystem",
+            "expression": "1.0.0",
+            "define": "TT_INPUT_SYSTEM"
+        }
+    ],
+    "noEngineReferences": false
+}

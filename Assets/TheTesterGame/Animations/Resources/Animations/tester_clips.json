@@ -1,0 +1,2753 @@
+{
+ "clips": [
+  {
+   "name": "walk",
+   "length": 1.1,
+   "loop": true,
+   "curves": [
+    {
+     "target": "thigh_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0.0,
+       21.0
+      ],
+      [
+       0.11,
+       17.0
+      ],
+      [
+       0.275,
+       4.0
+      ],
+      [
+       0.44,
+       -11.0
+      ],
+      [
+       0.55,
+       -19.0
+      ],
+      [
+       0.66,
+       -15.0
+      ],
+      [
+       0.825,
+       5.0
+      ],
+      [
+       0.968,
+       19.0
+      ]
+     ]
+    },
+    {
+     "target": "knee_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0.0,
+       -3.0
+      ],
+      [
+       0.11,
+       -15.0
+      ],
+      [
+       0.275,
+       -7.0
+      ],
+      [
+       0.44,
+       -5.0
+      ],
+      [
+       0.55,
+       -24.0
+      ],
+      [
+       0.66,
+       -52.0
+      ],
+      [
+       0.825,
+       -50.0
+      ],
+      [
+       0.968,
+       -14.0
+      ]
+     ]
+    },
+    {
+     "target": "ankle_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0.0,
+       9.0
+      ],
+      [
+       0.11,
+       0.0
+      ],
+      [
+       0.275,
+       0.0
+      ],
+      [
+       0.44,
+       -7.0
+      ],
+      [
+       0.55,
+       -20.0
+      ],
+      [
+       0.66,
+       -10.0
+      ],
+      [
+       0.825,
+       4.0
+      ],
+      [
+       0.968,
+       9.0
+      ]
+     ]
+    },
+    {
+     "target": "thigh_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0.0,
+       -19.0
+      ],
+      [
+       0.11,
+       -15.0
+      ],
+      [
+       0.275,
+       5.0
+      ],
+      [
+       0.418,
+       19.0
+      ],
+      [
+       0.55,
+       21.0
+      ],
+      [
+       0.66,
+       17.0
+      ],
+      [
+       0.825,
+       4.0
+      ],
+      [
+       0.99,
+       -11.0
+      ]
+     ]
+    },
+    {
+     "target": "knee_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0.0,
+       -24.0
+      ],
+      [
+       0.11,
+       -52.0
+      ],
+      [
+       0.275,
+       -50.0
+      ],
+      [
+       0.418,
+       -14.0
+      ],
+      [
+       0.55,
+       -3.0
+      ],
+      [
+       0.66,
+       -15.0
+      ],
+      [
+       0.825,
+       -7.0
+      ],
+      [
+       0.99,
+       -5.0
+      ]
+     ]
+    },
+    {
+     "target": "ankle_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0.0,
+       -20.0
+      ],
+      [
+       0.11,
+       -10.0
+      ],
+      [
+       0.275,
+       4.0
+      ],
+      [
+       0.418,
+       9.0
+      ],
+      [
+       0.55,
+       9.0
+      ],
+      [
+       0.66,
+       0.0
+      ],
+      [
+       0.825,
+       0.0
+      ],
+      [
+       0.99,
+       -7.0
+      ]
+     ]
+    },
+    {
+     "target": "shoulder_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -11.0
+      ],
+      [
+       0.55,
+       10.0
+      ]
+     ]
+    },
+    {
+     "target": "elbow_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       6
+      ],
+      [
+       0.55,
+       20.0
+      ]
+     ]
+    },
+    {
+     "target": "wrist_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -2
+      ],
+      [
+       0.55,
+       6
+      ]
+     ]
+    },
+    {
+     "target": "shoulder_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       10.0
+      ],
+      [
+       0.55,
+       -11.0
+      ]
+     ]
+    },
+    {
+     "target": "elbow_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       20.0
+      ],
+      [
+       0.55,
+       6
+      ]
+     ]
+    },
+    {
+     "target": "torso",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -3.6
+      ],
+      [
+       0.275,
+       -2.6
+      ],
+      [
+       0.55,
+       -3.6
+      ],
+      [
+       0.825,
+       -2.6
+      ]
+     ]
+    },
+    {
+     "target": "head",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       2.0
+      ],
+      [
+       0.275,
+       1.0
+      ],
+      [
+       0.55,
+       2.0
+      ],
+      [
+       0.825,
+       1.0
+      ]
+     ]
+    },
+    {
+     "target": "hip",
+     "prop": "y",
+     "interp": "linear",
+     "keys": [
+      [
+       0.0,
+       0.0291
+      ],
+      [
+       0.025,
+       -0.0007
+      ],
+      [
+       0.05,
+       0.0009
+      ],
+      [
+       0.075,
+       -0.0019
+      ],
+      [
+       0.1,
+       -0.0071
+      ],
+      [
+       0.125,
+       -0.0088
+      ],
+      [
+       0.15,
+       -0.0031
+      ],
+      [
+       0.175,
+       0.0025
+      ],
+      [
+       0.2,
+       0.0058
+      ],
+      [
+       0.225,
+       0.0087
+      ],
+      [
+       0.25,
+       0.0129
+      ],
+      [
+       0.275,
+       0.0201
+      ],
+      [
+       0.3,
+       0.0328
+      ],
+      [
+       0.325,
+       0.0372
+      ],
+      [
+       0.35,
+       0.0454
+      ],
+      [
+       0.375,
+       0.054
+      ],
+      [
+       0.4,
+       0.0628
+      ],
+      [
+       0.425,
+       0.0715
+      ],
+      [
+       0.45,
+       0.0796
+      ],
+      [
+       0.475,
+       0.0861
+      ],
+      [
+       0.5,
+       0.081
+      ],
+      [
+       0.525,
+       0.06
+      ],
+      [
+       0.55,
+       0.0291
+      ],
+      [
+       0.575,
+       -0.0007
+      ],
+      [
+       0.6,
+       0.0009
+      ],
+      [
+       0.625,
+       -0.0019
+      ],
+      [
+       0.65,
+       -0.0071
+      ],
+      [
+       0.675,
+       -0.0088
+      ],
+      [
+       0.7,
+       -0.0031
+      ],
+      [
+       0.725,
+       0.0025
+      ],
+      [
+       0.75,
+       0.0058
+      ],
+      [
+       0.775,
+       0.0087
+      ],
+      [
+       0.8,
+       0.0129
+      ],
+      [
+       0.825,
+       0.0201
+      ],
+      [
+       0.85,
+       0.0328
+      ],
+      [
+       0.875,
+       0.0372
+      ],
+      [
+       0.9,
+       0.0454
+      ],
+      [
+       0.925,
+       0.054
+      ],
+      [
+       0.95,
+       0.0628
+      ],
+      [
+       0.975,
+       0.0715
+      ],
+      [
+       1.0,
+       0.0796
+      ],
+      [
+       1.025,
+       0.0861
+      ],
+      [
+       1.05,
+       0.081
+      ],
+      [
+       1.075,
+       0.06
+      ]
+     ]
+    }
+   ],
+   "events": [
+    {
+     "t": 0.022000000000000002,
+     "name": "footstep"
+    },
+    {
+     "t": 0.5720000000000001,
+     "name": "footstep"
+    }
+   ],
+   "speed": 1.4319
+  },
+  {
+   "name": "idle",
+   "length": 4.2,
+   "loop": true,
+   "curves": [
+    {
+     "target": "torso",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0.0
+      ],
+      [
+       2.1,
+       -0.7
+      ]
+     ]
+    },
+    {
+     "target": "torso",
+     "prop": "sy",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       1.0
+      ],
+      [
+       2.1,
+       1.008
+      ]
+     ]
+    },
+    {
+     "target": "head",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0.5
+      ],
+      [
+       2.1,
+       -0.4
+      ]
+     ]
+    },
+    {
+     "target": "shoulder_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       1.0
+      ],
+      [
+       2.1,
+       -0.4
+      ]
+     ]
+    },
+    {
+     "target": "shoulder_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -1.0
+      ],
+      [
+       2.1,
+       0.4
+      ]
+     ]
+    },
+    {
+     "target": "elbow_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       3.0
+      ],
+      [
+       2.1,
+       4.5
+      ]
+     ]
+    },
+    {
+     "target": "elbow_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       3.0
+      ],
+      [
+       2.1,
+       4.0
+      ]
+     ]
+    },
+    {
+     "target": "stache",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       3.36,
+       0
+      ],
+      [
+       3.57,
+       2.5
+      ],
+      [
+       3.78,
+       0
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "name": "magnifier_raise",
+   "length": 0.9,
+   "loop": false,
+   "curves": [
+    {
+     "target": "slot:prop_f",
+     "prop": "visible",
+     "interp": "step",
+     "keys": [
+      [
+       0,
+       1
+      ]
+     ]
+    },
+    {
+     "target": "shoulder_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.35,
+       -7.91
+      ],
+      [
+       0.9,
+       47.89
+      ]
+     ]
+    },
+    {
+     "target": "elbow_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       4
+      ],
+      [
+       0.35,
+       110.14
+      ],
+      [
+       0.9,
+       103.62
+      ]
+     ]
+    },
+    {
+     "target": "wrist_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.5,
+       -22.8
+      ],
+      [
+       0.9,
+       -38
+      ]
+     ]
+    },
+    {
+     "target": "torso",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.9,
+       -7
+      ]
+     ]
+    },
+    {
+     "target": "head",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.6,
+       -2
+      ],
+      [
+       0.9,
+       -5
+      ]
+     ]
+    },
+    {
+     "target": "brow",
+     "prop": "y",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.9,
+       -0.004
+      ]
+     ]
+    },
+    {
+     "target": "shoulder_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.9,
+       -6
+      ]
+     ]
+    },
+    {
+     "target": "elbow_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       3
+      ],
+      [
+       0.9,
+       12
+      ]
+     ]
+    },
+    {
+     "target": "thigh_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.9,
+       3
+      ]
+     ]
+    },
+    {
+     "target": "knee_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.9,
+       -6
+      ]
+     ]
+    },
+    {
+     "target": "ankle_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.9,
+       3
+      ]
+     ]
+    }
+   ],
+   "events": [
+    {
+     "t": 0.15,
+     "name": "cloth"
+    },
+    {
+     "t": 0.6,
+     "name": "magnifier"
+    }
+   ]
+  },
+  {
+   "name": "examine",
+   "length": 2.4,
+   "loop": true,
+   "curves": [
+    {
+     "target": "slot:prop_f",
+     "prop": "visible",
+     "interp": "step",
+     "keys": [
+      [
+       0,
+       1
+      ]
+     ]
+    },
+    {
+     "target": "shoulder_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       47.89
+      ],
+      [
+       0.72,
+       54.13
+      ],
+      [
+       1.44,
+       39.89
+      ],
+      [
+       2.4,
+       47.89
+      ]
+     ]
+    },
+    {
+     "target": "elbow_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       103.62
+      ],
+      [
+       0.72,
+       96.34
+      ],
+      [
+       1.44,
+       109.34
+      ],
+      [
+       2.4,
+       103.62
+      ]
+     ]
+    },
+    {
+     "target": "wrist_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -38
+      ],
+      [
+       1.2,
+       -32
+      ],
+      [
+       2.4,
+       -38
+      ]
+     ]
+    },
+    {
+     "target": "torso",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -7
+      ],
+      [
+       1.2,
+       -8.5
+      ],
+      [
+       2.4,
+       -7
+      ]
+     ]
+    },
+    {
+     "target": "head",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -5
+      ],
+      [
+       0.84,
+       -3
+      ],
+      [
+       1.68,
+       -6.5
+      ],
+      [
+       2.4,
+       -5
+      ]
+     ]
+    },
+    {
+     "target": "brow",
+     "prop": "y",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -0.004
+      ],
+      [
+       1.2,
+       -0.006
+      ],
+      [
+       2.4,
+       -0.004
+      ]
+     ]
+    },
+    {
+     "target": "shoulder_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -6
+      ]
+     ]
+    },
+    {
+     "target": "elbow_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       12
+      ]
+     ]
+    },
+    {
+     "target": "thigh_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       3
+      ]
+     ]
+    },
+    {
+     "target": "knee_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -6
+      ]
+     ]
+    },
+    {
+     "target": "ankle_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       3
+      ]
+     ]
+    }
+   ],
+   "events": []
+  },
+  {
+   "name": "magnifier_lower",
+   "length": 0.7,
+   "loop": false,
+   "curves": [
+    {
+     "target": "slot:prop_f",
+     "prop": "visible",
+     "interp": "step",
+     "keys": [
+      [
+       0,
+       1
+      ],
+      [
+       0.62,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "shoulder_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       47.89
+      ],
+      [
+       0.35,
+       -7.91
+      ],
+      [
+       0.7,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "elbow_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       103.62
+      ],
+      [
+       0.35,
+       110.14
+      ],
+      [
+       0.7,
+       4
+      ]
+     ]
+    },
+    {
+     "target": "wrist_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -38
+      ],
+      [
+       0.7,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "torso",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -7
+      ],
+      [
+       0.7,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "head",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -5
+      ],
+      [
+       0.7,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "shoulder_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -6
+      ],
+      [
+       0.7,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "elbow_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       12
+      ],
+      [
+       0.7,
+       3
+      ]
+     ]
+    },
+    {
+     "target": "thigh_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       3
+      ],
+      [
+       0.7,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "knee_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -6
+      ],
+      [
+       0.7,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "ankle_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       3
+      ],
+      [
+       0.7,
+       0
+      ]
+     ]
+    }
+   ],
+   "events": [
+    {
+     "t": 0.3,
+     "name": "cloth"
+    }
+   ]
+  },
+  {
+   "name": "look_around",
+   "length": 3.2,
+   "loop": false,
+   "curves": [
+    {
+     "target": "head",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.35,
+       9
+      ],
+      [
+       1.1,
+       9
+      ],
+      [
+       1.4,
+       -7
+      ],
+      [
+       2.2,
+       -7
+      ],
+      [
+       2.6,
+       2
+      ],
+      [
+       3.2,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "torso",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.4,
+       1.5
+      ],
+      [
+       1.4,
+       -1.0
+      ],
+      [
+       2.6,
+       0
+      ],
+      [
+       3.2,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "brow",
+     "prop": "y",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.35,
+       0.008
+      ],
+      [
+       1.1,
+       0.008
+      ],
+      [
+       1.4,
+       0
+      ],
+      [
+       3.2,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "shoulder_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       1.0,
+       2
+      ],
+      [
+       2.0,
+       -2
+      ],
+      [
+       3.2,
+       0
+      ]
+     ]
+    }
+   ],
+   "events": [
+    {
+     "t": 1.25,
+     "name": "flip"
+    },
+    {
+     "t": 2.35,
+     "name": "flip"
+    }
+   ]
+  },
+  {
+   "name": "skeptical",
+   "length": 2.2,
+   "loop": false,
+   "curves": [
+    {
+     "target": "head",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.25,
+       4
+      ],
+      [
+       1.6,
+       4.5
+      ],
+      [
+       2.2,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "brow",
+     "prop": "y",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.18,
+       0.016
+      ],
+      [
+       1.7,
+       0.016
+      ],
+      [
+       2.2,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "brow",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.18,
+       6
+      ],
+      [
+       1.7,
+       6
+      ],
+      [
+       2.2,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "torso",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.3,
+       2.0
+      ],
+      [
+       1.6,
+       2.0
+      ],
+      [
+       2.2,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "stache",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.3,
+       -3
+      ],
+      [
+       1.6,
+       -3
+      ],
+      [
+       2.2,
+       0
+      ]
+     ]
+    }
+   ],
+   "events": []
+  },
+  {
+   "name": "mustache_adjust",
+   "length": 2.6,
+   "loop": false,
+   "curves": [
+    {
+     "target": "shoulder_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.25,
+       -16.63
+      ],
+      [
+       0.5,
+       23.27
+      ],
+      [
+       2.0,
+       23.27
+      ],
+      [
+       2.25,
+       -16.63
+      ],
+      [
+       2.6,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "elbow_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       4
+      ],
+      [
+       0.25,
+       120.73
+      ],
+      [
+       0.5,
+       120.2
+      ],
+      [
+       2.0,
+       120.2
+      ],
+      [
+       2.25,
+       120.73
+      ],
+      [
+       2.6,
+       4
+      ]
+     ]
+    },
+    {
+     "target": "wrist_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.5,
+       14
+      ],
+      [
+       0.8,
+       24
+      ],
+      [
+       1.1,
+       8
+      ],
+      [
+       1.4,
+       24
+      ],
+      [
+       1.7,
+       10
+      ],
+      [
+       2.0,
+       14
+      ],
+      [
+       2.6,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "head",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.5,
+       5
+      ],
+      [
+       2.0,
+       5
+      ],
+      [
+       2.6,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "stache",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.8,
+       5
+      ],
+      [
+       1.1,
+       -2
+      ],
+      [
+       1.4,
+       5
+      ],
+      [
+       1.7,
+       -1
+      ],
+      [
+       2.1,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "stache",
+     "prop": "y",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.8,
+       0.004
+      ],
+      [
+       1.4,
+       0.004
+      ],
+      [
+       2.1,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "torso",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.5,
+       1.5
+      ],
+      [
+       2.0,
+       1.5
+      ],
+      [
+       2.6,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "brow",
+     "prop": "y",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.6,
+       0.006
+      ],
+      [
+       2.0,
+       0.006
+      ],
+      [
+       2.6,
+       0
+      ]
+     ]
+    }
+   ],
+   "events": [
+    {
+     "t": 0.2,
+     "name": "cloth"
+    },
+    {
+     "t": 0.8,
+     "name": "stache"
+    },
+    {
+     "t": 1.4,
+     "name": "stache"
+    }
+   ]
+  },
+  {
+   "name": "disappointed",
+   "length": 2.6,
+   "loop": false,
+   "curves": [
+    {
+     "target": "head",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.6,
+       -11
+      ],
+      [
+       1.9,
+       -12
+      ],
+      [
+       2.6,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "torso",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.6,
+       -4
+      ],
+      [
+       1.9,
+       -4.5
+      ],
+      [
+       2.6,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "torso",
+     "prop": "sy",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       1
+      ],
+      [
+       0.3,
+       1.015
+      ],
+      [
+       0.9,
+       0.985
+      ],
+      [
+       1.9,
+       0.985
+      ],
+      [
+       2.6,
+       1
+      ]
+     ]
+    },
+    {
+     "target": "hip",
+     "prop": "y",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.9,
+       -0.012
+      ],
+      [
+       1.9,
+       -0.012
+      ],
+      [
+       2.6,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "shoulder_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.7,
+       -3
+      ],
+      [
+       1.9,
+       -3
+      ],
+      [
+       2.6,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "shoulder_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.7,
+       -3
+      ],
+      [
+       1.9,
+       -3
+      ],
+      [
+       2.6,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "elbow_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       4
+      ],
+      [
+       0.7,
+       1
+      ],
+      [
+       2.6,
+       4
+      ]
+     ]
+    },
+    {
+     "target": "brow",
+     "prop": "y",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.6,
+       -0.006
+      ],
+      [
+       1.9,
+       -0.006
+      ],
+      [
+       2.6,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "stache",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.6,
+       -4
+      ],
+      [
+       1.9,
+       -4
+      ],
+      [
+       2.6,
+       0
+      ]
+     ]
+    }
+   ],
+   "events": [
+    {
+     "t": 0.25,
+     "name": "sigh"
+    }
+   ]
+  },
+  {
+   "name": "impressed",
+   "length": 2.4,
+   "loop": false,
+   "curves": [
+    {
+     "target": "head",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.35,
+       3
+      ],
+      [
+       0.8,
+       -6
+      ],
+      [
+       1.1,
+       1
+      ],
+      [
+       1.8,
+       1.5
+      ],
+      [
+       2.4,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "brow",
+     "prop": "y",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.3,
+       0.012
+      ],
+      [
+       1.8,
+       0.01
+      ],
+      [
+       2.4,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "stache",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.9,
+       0
+      ],
+      [
+       1.1,
+       6
+      ],
+      [
+       1.9,
+       6
+      ],
+      [
+       2.4,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "stache",
+     "prop": "y",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       1.1,
+       0.006
+      ],
+      [
+       1.9,
+       0.006
+      ],
+      [
+       2.4,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "torso",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.4,
+       2.5
+      ],
+      [
+       1.8,
+       1.5
+      ],
+      [
+       2.4,
+       0
+      ]
+     ]
+    }
+   ],
+   "events": []
+  },
+  {
+   "name": "receive",
+   "length": 1.6,
+   "loop": false,
+   "curves": [
+    {
+     "target": "shoulder_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.5,
+       27.88
+      ],
+      [
+       0.8,
+       27.88
+      ],
+      [
+       1.6,
+       -13.21
+      ]
+     ]
+    },
+    {
+     "target": "elbow_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       4
+      ],
+      [
+       0.5,
+       60.05
+      ],
+      [
+       0.8,
+       60.05
+      ],
+      [
+       1.6,
+       101.66
+      ]
+     ]
+    },
+    {
+     "target": "wrist_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.5,
+       -10
+      ],
+      [
+       1.6,
+       -30
+      ]
+     ]
+    },
+    {
+     "target": "torso",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.5,
+       -8
+      ],
+      [
+       0.8,
+       -8
+      ],
+      [
+       1.6,
+       1
+      ]
+     ]
+    },
+    {
+     "target": "head",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.5,
+       -6
+      ],
+      [
+       1.6,
+       -3
+      ]
+     ]
+    }
+   ],
+   "events": [
+    {
+     "t": 0.75,
+     "name": "grab"
+    }
+   ]
+  },
+  {
+   "name": "hold",
+   "length": 3.6,
+   "loop": true,
+   "curves": [
+    {
+     "target": "shoulder_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -13.21
+      ],
+      [
+       1.8,
+       -14.21
+      ]
+     ]
+    },
+    {
+     "target": "elbow_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       101.66
+      ],
+      [
+       1.8,
+       103.66
+      ]
+     ]
+    },
+    {
+     "target": "wrist_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -30
+      ],
+      [
+       1.8,
+       -28
+      ]
+     ]
+    },
+    {
+     "target": "shoulder_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -20.41
+      ],
+      [
+       1.8,
+       -21.41
+      ]
+     ]
+    },
+    {
+     "target": "elbow_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       116.65
+      ],
+      [
+       1.8,
+       118.65
+      ]
+     ]
+    },
+    {
+     "target": "wrist_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -30
+      ],
+      [
+       1.8,
+       -28
+      ]
+     ]
+    },
+    {
+     "target": "torso",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       1.0
+      ],
+      [
+       1.8,
+       0.4
+      ]
+     ]
+    },
+    {
+     "target": "torso",
+     "prop": "sy",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       1.0
+      ],
+      [
+       1.8,
+       1.007
+      ]
+     ]
+    },
+    {
+     "target": "head",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -3
+      ],
+      [
+       1.8,
+       -2
+      ]
+     ]
+    }
+   ],
+   "events": []
+  },
+  {
+   "name": "sit_drive",
+   "length": 3.0,
+   "loop": true,
+   "curves": [
+    {
+     "target": "torso",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       5.0
+      ],
+      [
+       1.5,
+       4.4
+      ]
+     ]
+    },
+    {
+     "target": "head",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -4.0
+      ],
+      [
+       0.9,
+       -3.2
+      ],
+      [
+       1.8,
+       -4.4
+      ]
+     ]
+    },
+    {
+     "target": "shoulder_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       45.92
+      ],
+      [
+       1.5,
+       46.92
+      ]
+     ]
+    },
+    {
+     "target": "elbow_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       40.17
+      ],
+      [
+       1.5,
+       38.67
+      ]
+     ]
+    },
+    {
+     "target": "wrist_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -40
+      ],
+      [
+       1.5,
+       -38
+      ]
+     ]
+    },
+    {
+     "target": "shoulder_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       39.87
+      ],
+      [
+       1.5,
+       38.87
+      ]
+     ]
+    },
+    {
+     "target": "elbow_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       53.64
+      ],
+      [
+       1.5,
+       54.64
+      ]
+     ]
+    },
+    {
+     "target": "wrist_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -40
+      ]
+     ]
+    }
+   ],
+   "events": []
+  },
+  {
+   "name": "sit_stache",
+   "length": 2.6,
+   "loop": false,
+   "curves": [
+    {
+     "target": "torso",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       5.0
+      ],
+      [
+       2.6,
+       5.0
+      ]
+     ]
+    },
+    {
+     "target": "head",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -4.0
+      ],
+      [
+       0.5,
+       3.0
+      ],
+      [
+       2.0,
+       3.0
+      ],
+      [
+       2.6,
+       -2.0
+      ]
+     ]
+    },
+    {
+     "target": "shoulder_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       45.92
+      ],
+      [
+       0.25,
+       -16.63
+      ],
+      [
+       0.5,
+       23.27
+      ],
+      [
+       2.0,
+       23.27
+      ],
+      [
+       2.3,
+       -16.63
+      ],
+      [
+       2.6,
+       45.92
+      ]
+     ]
+    },
+    {
+     "target": "elbow_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       40.17
+      ],
+      [
+       0.25,
+       120.73
+      ],
+      [
+       0.5,
+       120.2
+      ],
+      [
+       2.0,
+       120.2
+      ],
+      [
+       2.3,
+       120.73
+      ],
+      [
+       2.6,
+       40.17
+      ]
+     ]
+    },
+    {
+     "target": "wrist_f",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -40
+      ],
+      [
+       0.5,
+       14
+      ],
+      [
+       0.8,
+       24
+      ],
+      [
+       1.1,
+       8
+      ],
+      [
+       1.4,
+       24
+      ],
+      [
+       1.7,
+       10
+      ],
+      [
+       2.0,
+       14
+      ],
+      [
+       2.6,
+       -40
+      ]
+     ]
+    },
+    {
+     "target": "stache",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       0
+      ],
+      [
+       0.8,
+       5
+      ],
+      [
+       1.1,
+       -2
+      ],
+      [
+       1.4,
+       5
+      ],
+      [
+       1.7,
+       -1
+      ],
+      [
+       2.1,
+       0
+      ]
+     ]
+    },
+    {
+     "target": "shoulder_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       39.87
+      ]
+     ]
+    },
+    {
+     "target": "elbow_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       53.64
+      ]
+     ]
+    },
+    {
+     "target": "wrist_b",
+     "prop": "rot",
+     "interp": "smooth",
+     "keys": [
+      [
+       0,
+       -40
+      ]
+     ]
+    }
+   ],
+   "events": [
+    {
+     "t": 0.8,
+     "name": "stache"
+    },
+    {
+     "t": 1.4,
+     "name": "stache"
+    }
+   ]
+  }
+ ]
+}

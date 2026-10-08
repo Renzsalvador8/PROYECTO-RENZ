@@ -1,0 +1,114 @@
+{
+ "size": [
+  1920,
+  1080
+ ],
+ "targets": {
+  "volante": {
+   "center": [
+    640,
+    822
+   ],
+   "radius": 70
+  },
+  "costura": {
+   "center": [
+    1505,
+    860
+   ],
+   "radius": 70
+  },
+  "rejilla": {
+   "center": [
+    1075.0,
+    631.0
+   ],
+   "radius": 70
+  },
+  "reloj": {
+   "center": [
+    1010,
+    510
+   ],
+   "radius": 62
+  }
+ },
+ "decoys": {
+  "espejo": {
+   "center": [
+    960,
+    112
+   ],
+   "radius": 80
+  },
+  "portavasos": {
+   "center": [
+    960,
+    940
+   ],
+   "radius": 110
+  },
+  "cargador": {
+   "center": [
+    960,
+    810
+   ],
+   "radius": 70
+  },
+  "guantera": {
+   "center": [
+    1520,
+    690
+   ],
+   "radius": 90
+  },
+  "palanca": {
+   "center": [
+    830,
+    659
+   ],
+   "radius": 50
+  },
+  "velocimetro": {
+   "center": [
+    500,
+    518
+   ],
+   "radius": 70
+  },
+  "reposacabezas": {
+   "center": [
+    156,
+    534
+   ],
+   "radius": 90
+  },
+  "luz_ambiental": {
+   "center": [
+    1400,
+    566
+   ],
+   "radius": 60
+  },
+  "emergencia": {
+   "center": [
+    1194,
+    676
+   ],
+   "radius": 34
+  },
+  "parabrisas": {
+   "center": [
+    1300,
+    250
+   ],
+   "radius": 160
+  }
+ },
+ "clues": {
+  "volante": "Art/Inspection/clue_volante",
+  "costura": "Art/Inspection/clue_costura",
+  "rejilla": "Art/Inspection/clue_rejilla",
+  "reloj": "Art/Inspection/clue_reloj"
+ }
+}

@@ -1,0 +1,142 @@
+{
+ "mmPerUnit": 770.0,
+ "lengthUnits": 6.0195,
+ "wheelRadiusUnits": 0.474,
+ "rearAxleUnits": -1.9708,
+ "frontAxleUnits": 1.9253,
+ "sprites": {
+  "ioniq5_side_teal": {
+   "sprite": "Art/Vehicles/ioniq5_side_teal",
+   "ppu": 200.0,
+   "pivot": [
+    0.50036,
+    0.04158
+   ],
+   "size": [
+    1243,
+    481
+   ]
+  },
+  "ioniq5_side_white": {
+   "sprite": "Art/Vehicles/ioniq5_side_white",
+   "ppu": 200.0,
+   "pivot": [
+    0.50036,
+    0.04158
+   ],
+   "size": [
+    1243,
+    481
+   ]
+  },
+  "ioniq5_side_bronze": {
+   "sprite": "Art/Vehicles/ioniq5_side_bronze",
+   "ppu": 200.0,
+   "pivot": [
+    0.50036,
+    0.04158
+   ],
+   "size": [
+    1243,
+    481
+   ]
+  },
+  "ioniq5_side_midnight": {
+   "sprite": "Art/Vehicles/ioniq5_side_midnight",
+   "ppu": 200.0,
+   "pivot": [
+    0.50036,
+    0.04158
+   ],
+   "size": [
+    1243,
+    481
+   ]
+  },
+  "ioniq5_side_teal_cabin": {
+   "sprite": "Art/Vehicles/ioniq5_side_teal_cabin",
+   "ppu": 200.0,
+   "pivot": [
+    0.50036,
+    0.04158
+   ],
+   "size": [
+    1243,
+    481
+   ]
+  },
+  "ioniq5_side_midnight_nowheels": {
+   "sprite": "Art/Vehicles/ioniq5_side_midnight_nowheels",
+   "ppu": 200.0,
+   "pivot": [
+    0.50036,
+    0.04158
+   ],
+   "size": [
+    1243,
+    481
+   ]
+  },
+  "ioniq5_side_white_dooropen": {
+   "sprite": "Art/Vehicles/ioniq5_side_white_dooropen",
+   "ppu": 200.0,
+   "pivot": [
+    0.50036,
+    0.04158
+   ],
+   "size": [
+    1243,
+    481
+   ]
+  },
+  "ioniq5_wheel": {
+   "sprite": "Art/Vehicles/ioniq5_wheel",
+   "ppu": 200.0,
+   "pivot": [
+    0.5,
+    0.5
+   ],
+   "size": [
+    197,
+    197
+   ]
+  }
+ },
+ "inspectionHotspots": {
+  "headlights": {
+   "center": [
+    1383.4,
+    536.9
+   ],
+   "radius": 70
+  },
+  "wheels": {
+   "center": [
+    1068.8,
+    736.7
+   ],
+   "radius": 105
+  },
+  "bodywork": {
+   "center": [
+    1218.9,
+    425.2
+   ],
+   "radius": 85
+  },
+  "doors": {
+   "center": [
+    685.2,
+    506.9
+   ],
+   "radius": 70
+  },
+  "grille": {
+   "center": [
+    1611.5,
+    675.2
+   ],
+   "radius": 85
+  }
+ }
+}

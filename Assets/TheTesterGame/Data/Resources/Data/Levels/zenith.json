@@ -1,0 +1,1243 @@
+{
+ "id": "zenith",
+ "bounds": [
+  -2.0,
+  62.6
+ ],
+ "groundY": -3.5,
+ "background": [
+  6,
+  12,
+  20
+ ],
+ "camera": {
+  "y": 0.0,
+  "size": 5.4
+ },
+ "layers": [
+  {
+   "name": "wall",
+   "parallax": 0.9,
+   "parallaxY": 0.9,
+   "order": -800,
+   "items": [
+    {
+     "sprite": "Art/Zenith/bay_led",
+     "x": -9.0,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/bay_plain",
+     "x": -5.4,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/bay_led",
+     "x": -1.8,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/bay_plain",
+     "x": 1.8,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/bay_plain",
+     "x": 5.4,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/bay_led",
+     "x": 9.0,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/bay_plain",
+     "x": 12.6,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/bay_plain",
+     "x": 16.2,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/bay_led",
+     "x": 19.8,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/bay_plain",
+     "x": 23.4,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/bay_logo",
+     "x": 29.7,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/bay_led",
+     "x": 36.0,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/bay_plain",
+     "x": 39.6,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/stage",
+     "x": 47.7,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/bay_plain",
+     "x": 55.8,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/bay_plain",
+     "x": 59.4,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/bay_plain",
+     "x": 63.0,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    }
+   ]
+  },
+  {
+   "name": "deco",
+   "parallax": 0.9,
+   "parallaxY": 0.9,
+   "order": -780,
+   "items": [
+    {
+     "sprite": "Art/Zenith/poster_car",
+     "x": 3.78,
+     "y": 1.35,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 0.66,
+     "sy": 0.66,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/poster_mountain",
+     "x": 6.3,
+     "y": 1.35,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 0.66,
+     "sy": 0.66,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/poster_tester",
+     "x": 10.26,
+     "y": 0.2,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 0.66,
+     "sy": 0.66,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0,
+     "id": "poster_tester"
+    },
+    {
+     "sprite": "Art/Zenith/storyboard",
+     "x": 18.45,
+     "y": -0.3,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 0.85,
+     "sy": 0.85,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0,
+     "id": "storyboard"
+    }
+   ]
+  },
+  {
+   "name": "mid",
+   "parallax": 0.95,
+   "parallaxY": 0.95,
+   "order": -600,
+   "items": [
+    {
+     "sprite": "Art/Zenith/desk",
+     "x": 7.6,
+     "y": -2.8,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0,
+     "id": "desk"
+    },
+    {
+     "sprite": "Art/Props/chair",
+     "x": 6.27,
+     "y": -3.35,
+     "ppu": 150,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/softbox",
+     "x": 13.87,
+     "y": -2.9,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 0.85,
+     "sy": 0.85,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Showroom/plant_mid",
+     "x": 1.425,
+     "y": -2.7,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      0.7,
+      0.78,
+      0.86
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Showroom/plant_mid",
+     "x": 26.125,
+     "y": -2.7,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": -1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      0.7,
+      0.78,
+      0.86
+     ],
+     "order": 0,
+     "rot": 0.0
+    }
+   ]
+  },
+  {
+   "name": "floor",
+   "parallax": 1.0,
+   "parallaxY": 1.0,
+   "order": -500,
+   "items": [
+    {
+     "sprite": "Art/Zenith/floor",
+     "x": -14,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.0,
+      1.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/floor",
+     "x": -9.3,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.0,
+      1.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/floor",
+     "x": -4.6,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.0,
+      1.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/floor",
+     "x": 0.1,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.0,
+      1.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/floor",
+     "x": 4.8,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.0,
+      1.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/floor",
+     "x": 9.5,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.0,
+      1.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/floor",
+     "x": 14.2,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.0,
+      1.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/floor",
+     "x": 18.9,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.0,
+      1.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/floor",
+     "x": 23.6,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.0,
+      1.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/floor",
+     "x": 28.3,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.0,
+      1.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/floor",
+     "x": 33.0,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.0,
+      1.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/floor",
+     "x": 37.7,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.0,
+      1.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/floor",
+     "x": 42.4,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.0,
+      1.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/floor",
+     "x": 47.1,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.0,
+      1.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/floor",
+     "x": 51.8,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.0,
+      1.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/floor",
+     "x": 56.5,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.0,
+      1.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/floor",
+     "x": 61.2,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.0,
+      1.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/floor",
+     "x": 65.9,
+     "y": -2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.0,
+      1.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    }
+   ]
+  },
+  {
+   "name": "play",
+   "parallax": 1.0,
+   "parallaxY": 1.0,
+   "order": -100,
+   "items": [
+    {
+     "sprite": "Art/Zenith/tripod_camera",
+     "x": 22.5,
+     "y": -2.9,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 0.75,
+     "sy": 0.75,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": -40,
+     "rot": 0.0,
+     "id": "camera"
+    },
+    {
+     "sprite": "Art/Showroom/spot_cone",
+     "x": 50.8,
+     "y": -3.9,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 0.75,
+     "sy": 1.05,
+     "alpha": 0.85,
+     "tint": [
+      1.0,
+      0.95,
+      0.88
+     ],
+     "order": -5,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/pedestal",
+     "x": 50.8,
+     "y": -2.95,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 0.36,
+     "sy": 0.36,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": -30,
+     "rot": 0.0,
+     "id": "pedestal_lux"
+    },
+    {
+     "sprite": "Art/Props/award_lux_grand_prix",
+     "x": 50.8,
+     "y": -1.558,
+     "ppu": 340,
+     "pivot": [
+      0.5,
+      0.02
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": -20,
+     "rot": 0.0,
+     "id": "award_lux"
+    },
+    {
+     "sprite": "Art/Zenith/plaque_lux",
+     "x": 50.8,
+     "y": -2.45,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.5
+     ],
+     "sx": 0.42,
+     "sy": 0.42,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": -25,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Showroom/spot_cone",
+     "x": 55.2,
+     "y": -3.9,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 0.75,
+     "sy": 1.05,
+     "alpha": 0.85,
+     "tint": [
+      1.0,
+      0.95,
+      0.88
+     ],
+     "order": -5,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Zenith/pedestal",
+     "x": 55.2,
+     "y": -2.95,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 0.36,
+     "sy": 0.36,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": -30,
+     "rot": 0.0,
+     "id": "pedestal_effie"
+    },
+    {
+     "sprite": "Art/Props/award_effie_bronze",
+     "x": 55.2,
+     "y": -1.558,
+     "ppu": 420,
+     "pivot": [
+      0.5,
+      0.02
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": -20,
+     "rot": 0.0,
+     "id": "award_effie"
+    },
+    {
+     "sprite": "Art/Zenith/plaque_effie",
+     "x": 55.2,
+     "y": -2.45,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.5
+     ],
+     "sx": 0.42,
+     "sy": 0.42,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": -25,
+     "rot": 0.0
+    }
+   ]
+  },
+  {
+   "name": "fg",
+   "parallax": 1.3,
+   "parallaxY": 1.1,
+   "order": 500,
+   "items": [
+    {
+     "sprite": "Art/Zenith/boom_fg",
+     "x": 16.9,
+     "y": 2.4,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 1.0,
+     "sy": 1.0,
+     "alpha": 0.95,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    },
+    {
+     "sprite": "Art/Showroom/column_fg",
+     "x": 39.65,
+     "y": -7.0,
+     "ppu": 100.0,
+     "pivot": [
+      0.5,
+      0.0
+     ],
+     "sx": 0.8,
+     "sy": 1.0,
+     "alpha": 1.0,
+     "tint": [
+      1,
+      1,
+      1
+     ],
+     "order": 0,
+     "rot": 0.0
+    }
+   ]
+  }
+ ],
+ "markers": [
+  {
+   "id": "logo",
+   "x": 33.0,
+   "y": -3.5
+  },
+  {
+   "id": "stage",
+   "x": 53.0,
+   "y": -3.5
+  },
+  {
+   "id": "spawn",
+   "x": 0.5,
+   "y": -3.5
+  },
+  {
+   "id": "awards",
+   "x": 53.0,
+   "y": -3.5,
+   "prompt": "PRESIONA E PARA RECIBIR EL PREMIO",
+   "radius": 2.4
+  },
+  {
+   "id": "award_lux",
+   "x": 50.8,
+   "y": -3.5
+  },
+  {
+   "id": "award_effie",
+   "x": 55.2,
+   "y": -3.5
+  },
+  {
+   "id": "reveal",
+   "x": 44.0,
+   "y": -3.5
+  },
+  {
+   "id": "desk",
+   "x": 8.0,
+   "y": -3.5,
+   "prompt": "PRESIONA E PARA OBSERVAR",
+   "radius": 1.6
+  },
+  {
+   "id": "storyboard",
+   "x": 20.5,
+   "y": -3.5,
+   "prompt": "PRESIONA E PARA OBSERVAR",
+   "radius": 1.6
+  },
+  {
+   "id": "poster_tester",
+   "x": 11.4,
+   "y": -3.5,
+   "prompt": "PRESIONA E PARA OBSERVAR",
+   "radius": 1.0
+  },
+  {
+   "id": "camera",
+   "x": 22.5,
+   "y": -3.5,
+   "prompt": "PRESIONA E PARA OBSERVAR",
+   "radius": 1.2
+  }
+ ],
+ "colliders": []
+}

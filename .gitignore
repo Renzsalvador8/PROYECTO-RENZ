@@ -1,0 +1,35 @@
+# Unity
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+/[Mm]emoryCaptures/
+/[Rr]ecordings/
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+.vs/
+.idea/
+.vscode/
+*.apk
+*.aab
+crashlytics-build.properties
+sysinfo.txt
+# Tooling
+Tools/CompileCheck/.refs/
+Tools/CompileCheck/obj/
+Tools/CompileCheck/bin/
+Tools/**/__pycache__/
+Tools/ArtPipeline/_preview/
