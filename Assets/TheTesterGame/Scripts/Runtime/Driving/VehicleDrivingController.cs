@@ -47,7 +47,7 @@ namespace TheTester
             float ppu = carMeta.GetFloat("ppu", 200f);
             AddSprite(body, "Cabin", "Art/Drive/cabin_interior", ppu, new Vector2(piv[0], piv[1]), 0);
             vc.Driver = TesterRig.Create("tester_side", body, 10, "Driver");
-            vc.Driver.transform.localPosition = new Vector3(0.43f + 0.016f, 0.75f - 1.036f, 0f);
+            vc.Driver.transform.localPosition = new Vector3(0.30f + 0.016f, 0.68f - 1.036f, 0f);
             vc.Driver.SetHidden(true, "thigh_f", "thigh_b", "shin_f", "shin_b", "shoe_f", "shoe_b");
             vc.DriverAnim = go.AddComponent<RigAnimator>();
             vc.DriverAnim.Init(vc.Driver);

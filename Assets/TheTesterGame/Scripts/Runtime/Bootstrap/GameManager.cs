@@ -43,6 +43,7 @@ namespace TheTester
             Progress = SaveManager.LoadProgress();
             Progress.ChapterChanged += _ => SaveManager.SaveProgress(Progress);
             gameObject.AddComponent<GameInputUpdater>();
+            gameObject.AddComponent<AudioListener>();     // persistent: all game audio is non-spatial
             gameObject.AddComponent<AudioManager>();
             EnsureEventSystem();
             var ui = new GameObject("UI");

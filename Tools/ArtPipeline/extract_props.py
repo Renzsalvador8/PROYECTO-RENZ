@@ -29,11 +29,16 @@ def trimmed(arr, pad=3):
     return arr[max(ys.min() - pad, 0):ys.max() + pad + 1, max(xs.min() - pad, 0):xs.max() + pad + 1]
 
 
+RUNTIME = {'Props/award_lux_grand_prix', 'Props/award_effie_bronze', 'Props/chair'}
+
+
 def save(arr, name):
     img = Image.fromarray(np.clip(trimmed(arr), 0, 255).astype(np.uint8), 'RGBA')
     from atlas import bleed
     img = bleed(img, 4)
-    save_png(img, name)
+    save_png(img, name, root=ART_SRC)
+    if name in RUNTIME:
+        save_png(img, name)
     return img
 
 
@@ -74,12 +79,12 @@ def build():
     lock = trimmed(cream, 8)
     img = Image.fromarray(np.clip(lock, 0, 255).astype(np.uint8), 'RGBA')
     img = img.resize((img.width // 2, img.height // 2), Image.LANCZOS)
-    save_png(img, 'zenith_logo_lockup', root=UI_OUT)
+    save_png(img, 'UI/zenith_logo_lockup', root=ART_SRC)
     # mark only (left circle)
     mark = cream[:, : int(w * 0.43)]
     mi = Image.fromarray(np.clip(trimmed(mark, 8), 0, 255).astype(np.uint8), 'RGBA')
     mi = mi.resize((mi.width // 2, mi.height // 2), Image.LANCZOS)
-    save_png(mi, 'zenith_logo_mark', root=UI_OUT)
+    save_png(mi, 'UI/zenith_logo_mark', root=ART_SRC)
     return out
 
 

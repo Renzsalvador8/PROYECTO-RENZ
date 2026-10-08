@@ -19,6 +19,8 @@ namespace TheTester
         public float Velocity => _vel;
         public float WalkSpeed { get; private set; } = 1.4f;
         public float SpeedMultiplier = 1f;
+        /// <summary>Player-controlled walking is a touch brisker than scripted walks.</summary>
+        public float InputSpeed = 1.15f;
 
         private float _vel;
         private float? _autoTarget;
@@ -69,7 +71,8 @@ namespace TheTester
         {
             float dt = Time.deltaTime;
             float input = 0f;
-            if (InputEnabled && !Busy) input = GameInput.MoveX;
+            float speedMul = SpeedMultiplier;
+            if (InputEnabled && !Busy) { input = GameInput.MoveX; speedMul = InputSpeed; }
             else if (_autoTarget.HasValue)
             {
                 float dx = _autoTarget.Value - transform.position.x;
@@ -77,7 +80,7 @@ namespace TheTester
                 if (input == 0f) _autoTarget = null;
             }
 
-            float target = input * WalkSpeed * SpeedMultiplier;
+            float target = input * WalkSpeed * speedMul;
             _vel = Mathf.MoveTowards(_vel, target, Accel * dt);
             if (Mathf.Abs(input) > 0.01f && Mathf.Sign(input) != Facing) Turn(Mathf.Sign(input));
 

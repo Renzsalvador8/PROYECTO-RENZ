@@ -461,6 +461,7 @@ namespace TheTester.Tests
                 foreach (var e in course.Update(Dt, car)) seen.Add(e);
                 t += Dt;
             }
+            TestContext.WriteLine("drive completed in " + t.ToString("0.0") + " s, score " + course.Score() + ", parking " + course.ParkingCentimetres + " cm");
             Assert.IsTrue(course.IsParked, "parked (t=" + t + ", x=" + car.X + ")");
             Assert.IsTrue(course.StoppedCorrectly, "stopped at the light");
             Assert.IsFalse(course.RanRed);

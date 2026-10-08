@@ -13,6 +13,8 @@ SCALE = SIDE_PPU / MM_PER_UNIT   # px per mm
 def side_sprite(paint, name, door_open=0.0, glass_alpha=1.0, wheels=False, lights=True):
     W = int(LEN * SCALE + 40)
     H = int(1700 * SCALE + 40)
+    W += (-W) % 4          # multiples of 4 keep DXT/ETC compression available on WebGL
+    H += (-H) % 4
     cam = Camera('side', size=(W, H), scale=SCALE, origin=(20, H - 20))
     cp = CarPainter(cam, paint, draw_wheels=wheels, door_open=door_open, glass_alpha=glass_alpha, lights_on=lights)
     img = cp.render().image(seed=hash(name) % 1000)
@@ -28,10 +30,9 @@ def build():
             'wheelRadiusUnits': round(WHEEL_R / MM_PER_UNIT, 4),
             'rearAxleUnits': round((R_AX - LEN / 2) / MM_PER_UNIT, 4),
             'frontAxleUnits': round((F_AX - LEN / 2) / MM_PER_UNIT, 4), 'sprites': {}}
-    for paint in ('teal', 'white', 'bronze', 'midnight'):
+    for paint in ('teal', 'bronze'):
         meta['sprites']['ioniq5_side_' + paint] = side_sprite(paint, 'ioniq5_side_' + paint, wheels=True)
     meta['sprites']['ioniq5_side_teal_cabin'] = side_sprite('teal', 'ioniq5_side_teal_cabin', glass_alpha=0.42)
-    meta['sprites']['ioniq5_side_midnight_nowheels'] = side_sprite('midnight', 'ioniq5_side_midnight_nowheels')
     meta['sprites']['ioniq5_side_white_dooropen'] = side_sprite('white', 'ioniq5_side_white_dooropen', door_open=1.0, wheels=True)
     # wheel sprite
     wimg = render_wheel_sprite(SCALE)

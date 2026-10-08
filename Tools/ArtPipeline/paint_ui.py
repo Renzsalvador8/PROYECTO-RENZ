@@ -44,7 +44,7 @@ def title_lockup(w=1600, h=520):
 
 def end_lockup(w=1600, h=520):
     cv = Canvas(w, h)
-    logo = Image.open(UI_OUT + '/zenith_logo_mark.png')
+    logo = Image.open(ART_SRC + '/UI/zenith_logo_mark.png')
     lw = 150; lh = int(logo.height * lw / logo.width)
     cv.image(logo, w / 2 - lw / 2, 10, lw, lh)
     cv.text('ZENITH STUDIO', w / 2, 240, 76, CREAM, 'Jost-Medium.ttf', spacing=30, align='center')
@@ -215,16 +215,11 @@ def exterior_inspection_bg():
 
 def build():
     out = {
-        'title_lockup': title_lockup(), 'end_lockup': end_lockup(), 'frame': frame9(), 'frame_light': frame9(fill_c=(236, 228, 214), alpha=0.92, border=(150, 130, 110)),
-        'keycap': keycap(), 'circle': circle(), 'circle_soft': circle(soft=True), 'ring': ring(), 'check': check(),
+        'title_lockup': title_lockup(), 'end_lockup': end_lockup(), 'circle': circle(), 'circle_soft': circle(soft=True), 'ring': ring(), 'check': check(),
         'arrow_left': arrow(left=True), 'arrow_right': arrow(left=False), 'chevron_up': chevron(up=True), 'chevron_down': chevron(up=False),
         'pause': pause_icon(), 'vignette': vignette(), 'grain': grain(), 'magnifier_cursor': magnifier_cursor(),
-        'paper_card': paper_card(), 'stache_icon': None,
+        'paper_card': paper_card(),
     }
-    st = Canvas(240, 90)
-    for poly in stache_path(120, 40, 1.05):
-        st.poly(poly, (255, 255, 255), smooth=True)
-    out['stache_icon'] = st.finish(texture=0.0)
     for k, v in out.items():
         save_png(v, k, root=UI_OUT)
     save_png(exterior_inspection_bg(), 'Inspection/bg_exterior')

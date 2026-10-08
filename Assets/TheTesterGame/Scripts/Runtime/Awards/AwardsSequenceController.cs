@@ -49,7 +49,8 @@ namespace TheTester
             yield return Tween.Wait(0.75f);
             _lux = HeldProp.Create(_player.Rig, "Art/Props/award_lux_grand_prix", 340f, new Vector2(0.5f, 0.02f), 119);
             _lux.Attach(_player.Rig.Bone("wrist_f"), new Vector2(0.03f, -0.12f), 0f, 119);
-            _lux.FlyFrom(trophy != null ? trophy.transform.position : _player.transform.position, 0.55f);
+            _lux.Scale = 0.62f;
+            _lux.FlyFrom(trophy != null ? trophy.transform.position : _player.transform.position, 0.55f, 1f);
             if (trophy != null) trophy.enabled = false;
             AudioManager.I.Sfx("trophy_lux", 0.7f);
             yield return Tween.Wait(0.85f);
@@ -74,7 +75,8 @@ namespace TheTester
             yield return Tween.Wait(0.75f);
             _effie = HeldProp.Create(_player.Rig, "Art/Props/award_effie_bronze", 420f, new Vector2(0.5f, 0.02f), 119);
             _effie.Attach(_player.Rig.Bone("wrist_f"), new Vector2(0.03f, -0.1f), 0f, 119);
-            _effie.FlyFrom(trophy != null ? trophy.transform.position : _player.transform.position, 0.55f);
+            _effie.Scale = 0.72f;
+            _effie.FlyFrom(trophy != null ? trophy.transform.position : _player.transform.position, 0.55f, 1f);
             if (trophy != null) trophy.enabled = false;
             AudioManager.I.Sfx("trophy_effie", 0.7f);
             yield return Tween.Wait(0.85f);
@@ -114,14 +116,21 @@ namespace TheTester
             cone.transform.localPosition = new Vector3(0f, -4.9f, 0f);
             cone.transform.localScale = new Vector3(1.0f, 1.1f, 1f);
             cone.sprite = GameAssets.Sprite("Art/Showroom/spot_cone", 100f, new Vector2(0.5f, 0f));
-            cone.color = new Color(1f, 0.95f, 0.88f, 0.9f);
+            cone.color = new Color(1f, 0.95f, 0.88f, 0.55f);
             cone.sortingOrder = 3002;
+            var halo = new GameObject("Halo").AddComponent<SpriteRenderer>();
+            halo.transform.SetParent(root, false);
+            halo.transform.localPosition = new Vector3(0f, -2.6f, 0f);
+            halo.transform.localScale = new Vector3(2.2f, 2.6f, 1f);
+            halo.sprite = GameAssets.Sprite("UI/circle_soft", 100f);
+            halo.color = new Color(1f, 0.86f, 0.68f, 0.22f);
+            halo.sortingOrder = 3003;
             var fr = FrontRig.Create(root, (Vector3)stage + new Vector3(0f, -4.35f, 0f), 3010, 1.0f);
             fr.AutoBlink = true;
             var cam = _d.Cam;
             var head = fr.Rig.Bone("head").position;
-            var wide = new Vector2(stage.x, head.y - 0.95f);
-            cam.Cut(wide, 1.55f);
+            var wide = new Vector2(stage.x, head.y - 0.62f);
+            cam.Cut(wide, 1.18f);
             yield return ui.FadeIn(1.4f);
             yield return Tween.Wait(1.2f);
 
@@ -129,19 +138,19 @@ namespace TheTester
             fr.SetExpression("look_dl");
             fr.Tilt(5f);
             fr.Lean(new Vector2(-0.03f, -0.02f));
-            StartCoroutine(cam.MoveTo(wide + new Vector2(-0.18f, -0.05f), 1.42f, 1.4f));
+            StartCoroutine(cam.MoveTo(wide + new Vector2(-0.12f, -0.04f), 1.1f, 1.4f));
             audio.Sfx("cloth_1", 0.25f);
             yield return Tween.Wait(2.0f);
             fr.SetExpression("look_dr");
             fr.Tilt(-5f);
             fr.Lean(new Vector2(0.03f, -0.02f));
-            StartCoroutine(cam.MoveTo(wide + new Vector2(0.18f, -0.05f), 1.42f, 1.4f));
+            StartCoroutine(cam.MoveTo(wide + new Vector2(0.12f, -0.04f), 1.1f, 1.4f));
             yield return Tween.Wait(2.0f);
             // back to centre, an eyebrow
             fr.SetExpression("neutral");
             fr.Tilt(0f);
             fr.Lean(Vector2.zero);
-            yield return cam.MoveTo(new Vector2(stage.x, head.y - 0.55f), 1.15f, 1.6f);
+            yield return cam.MoveTo(new Vector2(stage.x, head.y - 0.36f), 0.98f, 1.6f);
             fr.SetExpression("brow_one");
             audio.Sfx("stache", 0.2f, 1.3f);
             yield return Tween.Wait(1.3f);

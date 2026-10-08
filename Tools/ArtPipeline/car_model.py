@@ -518,6 +518,7 @@ class CarPainter:
 def render_wheel_sprite(px_per_mm=0.2, paint='teal'):
     """Side-view wheel (tyre + rim) as a standalone sprite for rotation in-game."""
     size = int(2 * WHEEL_R * px_per_mm + 8)
+    size += (-size) % 4
     cam = Camera('side', size=(size, size), scale=px_per_mm, origin=(size / 2 - F_AX * px_per_mm, size / 2 + WHEEL_R * px_per_mm))
     cp = CarPainter(cam, paint)
     cp.wheel(F_AX, HALF_W - 40)

@@ -12,7 +12,7 @@ LED = (236, 226, 204)
 
 
 def load(name):
-    return Image.open(ART_OUT + '/Props/' + name + '.png')
+    return Image.open(ART_SRC + '/Props/' + name + '.png')
 
 
 def bay(kind, w=400, seed=0):
@@ -28,7 +28,7 @@ def bay(kind, w=400, seed=0):
     if kind == 'storyboard':
         bx, by, bw, bh = 30, top + 120, w * 2 - 60, 380
     if kind == 'logo':
-        logo = Image.open(UI_OUT + '/zenith_logo_lockup.png')
+        logo = Image.open(ART_SRC + '/UI/zenith_logo_lockup.png')
         lw = int(w * 0.62); lh = int(logo.height * lw / logo.width)
         cv.glow(w / 2, top + 260, 300, (90, 130, 170), 0.35)
         cv.image(logo, w / 2 - lw / 2, top + 260 - lh / 2, lw, lh, alpha=0.95)

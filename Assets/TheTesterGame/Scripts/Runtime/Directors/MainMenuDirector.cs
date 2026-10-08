@@ -18,7 +18,7 @@ namespace TheTester
             bg.sortingOrder = -100;
             Cam.SetBounds(-10.24f, 10.24f);
             Cam.Cut(new Vector2(0.4f, 0f), 5.4f);
-            _tester = PlayerController2D.Spawn(new Vector3(-3.4f, -3.2f, 0f), false, -3.2f);
+            _tester = PlayerController2D.Spawn(new Vector3(-3.4f, -4.2f, 0f), false, -4.2f);   // painting ground line (y = 960 px)
             _tester.transform.localScale = Vector3.one * 0.78f;
             _tester.Rig.SetTint(new Color(0.72f, 0.74f, 0.86f));
             _tester.Face(1f, true);

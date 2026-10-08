@@ -13,6 +13,7 @@ namespace TheTester
         private float _revealX;
         public bool Finished { get; private set; }
         public AwardsSequenceController Awards => _awards;
+        public override bool AllowPause => !Finished && (_awards == null || !_awards.Running);
 
         protected override IEnumerator Run()
         {
@@ -28,7 +29,8 @@ namespace TheTester
                 Progress.CompleteTest(TestId.Drive);
             }
 #endif
-            if (Progress.Chapter == Chapter.Completed) Progress.NormalizeForContinue();
+            // (re)entering the studio always starts the ceremony from the beginning
+            if (Progress.Chapter >= Chapter.ZenithStudio) Progress.NormalizeForContinue();
             BuildCamera(UIStyle.Midnight);
             BuildLevel("zenith");
             float spawn = Level.MarkerX("spawn");

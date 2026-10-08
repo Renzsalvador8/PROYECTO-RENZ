@@ -24,7 +24,7 @@ def L(poly):
 
 HEAD = [(1205, 90), (1320, 90), (1320, 180), (1300, 186), (1291, 196), (1277, 203), (1262, 207), (1248, 204),
         (1235, 197), (1226, 188), (1205, 182)]
-NEIGHBOUR = [(1138, 85), (1182, 85), (1182, 250), (1160, 262), (1138, 262)]
+NEIGHBOUR = [(1138, 85), (1157, 85), (1157, 240), (1138, 240)]
 NECK_BAND = [(1230, 184), (1294, 184), (1296, 222), (1228, 222)]
 
 
@@ -98,7 +98,7 @@ def extract():
     band = poly_mask((w, h), [L(NECK_BAND)]) > 0.5
     # neck band: keep turtleneck behind the chin, replacing any skin with turtleneck black
     body_rgb = rgb.copy()
-    skinish = band & (rgb[:, :, 0] > 110)
+    skinish = band & (rgb[:, :, 0] > 140) & (rgb[:, :, 0] - rgb[:, :, 2] > 35) & (rgb.mean(axis=2) > 120)
     tn = np.median(rgb[band & (lum < 50)].reshape(-1, 3), axis=0)
     body_rgb[skinish] = tn + ndimage.gaussian_filter(np.random.default_rng(2).standard_normal((h, w)), 1)[skinish][:, None] * 3
     body_a = np.where(band & (alpha > 0.5), 1.0, body_a)

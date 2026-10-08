@@ -118,7 +118,7 @@ def street_lamp(w=180, h=720, seed=25):
     return cv.finish(texture=0.8, seed=seed)
 
 
-def road(w=512, h=430, seed=26):
+def road(w=512, h=432, seed=26):
     """Top edge = back kerb (y -1.9). Lanes centred at -2.7 (far) and -3.6 (near)."""
     cv = Canvas(w, h)
     # back sidewalk

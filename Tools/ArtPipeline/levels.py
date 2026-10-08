@@ -34,7 +34,7 @@ def showroom():
     mid.add('Art/Showroom/coffee_station', 3.0, WALL_BASE - 0.35, id='coffee')
     mid.add('Art/Showroom/reception', 8.5, WALL_BASE - 0.4, id='reception')
     mid.add('Art/Showroom/plant_mid', 12.2, WALL_BASE - 0.3)
-    mid.add('Art/Showroom/plant_mid', 27.0, WALL_BASE - 0.3, flip=True)
+    mid.add('Art/Showroom/plant_mid', 35.6, WALL_BASE - 0.3, flip=True)
     mid.add('Art/Showroom/platform', 53.0, WALL_BASE - 0.75, sx=0.85, sy=0.85)
     mid.add('Art/Vehicles/ioniq5_side_bronze', 53.0, WALL_BASE - 0.45, ppu=200, pivot=(0.5, 0.017), sx=-0.85, sy=0.85)
     mid.add('Art/Showroom/plant_mid', 57.5, WALL_BASE - 0.3)

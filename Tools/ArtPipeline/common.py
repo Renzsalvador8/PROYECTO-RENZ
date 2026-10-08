@@ -12,10 +12,12 @@ ROOT = os.path.abspath(os.path.join(HERE, '..', '..'))
 REFS = os.path.join(ROOT, 'Assets', 'References')
 GAME = os.path.join(ROOT, 'Assets', 'TheTesterGame')
 ART_OUT = os.path.join(GAME, 'Art', 'Resources', 'Art')
+ART_SRC = os.path.join(GAME, 'Art', 'Source')          # pipeline inputs/extras: kept in the project, not shipped
 DATA_OUT = os.path.join(GAME, 'Data', 'Resources', 'Data')
 FONTS = os.path.join(GAME, 'UI', 'Resources', 'UI', 'Fonts')
 UI_OUT = os.path.join(GAME, 'UI', 'Resources', 'UI')
 SCRATCH = os.environ.get('TT_SCRATCH', os.path.join(HERE, '_preview'))
+os.makedirs(SCRATCH, exist_ok=True)
 
 # Brief palette
 MIDNIGHT = (0x09, 0x1B, 0x2D)

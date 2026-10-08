@@ -49,9 +49,35 @@ namespace TheTester
         }
 
         // ------------------------------------------------------------------ opening: the arrival
+        private Transform _arrivalRoot;
+        private bool _arrivalDone;
+
+        /// <summary>Plays the arrival; Space/Enter/E (or the touch button) skips it after a moment.</summary>
         private IEnumerator Arrival()
         {
+            _arrivalDone = false;
+            var seq = StartCoroutine(ArrivalSequence());
+            float t = 0f;
+            while (!_arrivalDone)
+            {
+                t += Time.deltaTime;
+                if (t > 1.5f && (GameInput.ActionDown || GameInput.InteractDown) && !GameManager.I.Paused)
+                {
+                    StopCoroutine(seq);
+                    UI.HideCaption();
+                    yield return UI.FadeOut(0.6f);
+                    break;
+                }
+                yield return null;
+            }
+            UI.SetLetterbox(0f, 0f);
+            if (_arrivalRoot != null) Destroy(_arrivalRoot.gameObject);
+        }
+
+        private IEnumerator ArrivalSequence()
+        {
             var root = new GameObject("Arrival").transform;
+            _arrivalRoot = root;
             var bg = new GameObject("Exterior").AddComponent<SpriteRenderer>();
             bg.transform.SetParent(root, false);
             bg.transform.position = ArrivalStage;
@@ -67,7 +93,7 @@ namespace TheTester
             Audio.PlayMusic("music_title", 2f, 0.45f);
             yield return UI.FadeIn(2.0f);
 
-            StartCoroutine(walker.WalkTo(ArrivalStage.x - 3.2f, 0.85f));
+            walker.StartCoroutine(walker.WalkTo(ArrivalStage.x - 3.2f, 0.85f));   // owned by the walker: stops if skipped
             yield return Wait(1.2f);
             yield return Say(Lines.Opening1, 0.6f);
             yield return Tween.WaitUntilOrTimeout(() => Mathf.Abs(walker.Velocity) < 0.01f, 8f);
@@ -78,8 +104,7 @@ namespace TheTester
             yield return walker.WalkTo(door - 0.2f, 0.85f);
             Audio.Sfx("door_open", 0.3f, 1.4f);
             yield return UI.FadeOut(1.1f);
-            UI.SetLetterbox(0f, 0f);
-            Destroy(root.gameObject);
+            _arrivalDone = true;
         }
 
         // ------------------------------------------------------------------ interactables

@@ -44,7 +44,6 @@ namespace TheTester
             cam.farClipPlane = 100f;
             cam.depth = 0;
             go.transform.position = new Vector3(0f, 0f, -20f);
-            go.AddComponent<AudioListener>();
             var cc = go.AddComponent<CameraController>();
             cc.Cam = cam;
             cc._base = go.transform.position;
@@ -78,6 +77,9 @@ namespace TheTester
             Following = t != null;
             if (snap && t != null)
             {
+                if (_move != null) { StopCoroutine(_move); _move = null; }
+                Cam.orthographicSize = BaseSize;
+                _zoomSize = BaseSize;
                 _base.x = ClampX(t.position.x + TargetOffsetX, Cam.orthographicSize);
                 _base.y = BaseY + _yOffset;
                 transform.position = _base;

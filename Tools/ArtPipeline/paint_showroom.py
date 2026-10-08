@@ -252,16 +252,16 @@ def spot_cone(w=900, h=900):
     return pil_from(a)
 
 
-def exterior(day=True, w=2048, h=1080, seed=12):
-    """Arrival shot: the dealership facade seen from the plaza."""
+def exterior(day=True, w=2048, h=1080, seed=12, top=300, ground_y=860, sign_dx=520, city_y=260):
+    """Arrival shot: the dealership facade seen from the plaza. The title screen uses a lower framing
+    (more sky) so the title lockup has room."""
     cv = Canvas(w, h)
     sky = [(150, 176, 194), (200, 210, 212), (226, 222, 212)] if day else [(10, 24, 44), (28, 50, 74), (96, 100, 108)]
     cv.vgrad(0, 0, w, h, sky, [0, 0.55, 0.8])
     far = city_far(day, w, 512, seed)
-    cv.image(far, 0, 260, w, 512)
-    ground_y = 860
+    cv.image(far, 0, city_y, w, 512)
     # building: long glass box, cantilevered roof, warm interior
-    bx0, bx1, top = 640, 2048, 300
+    bx0, bx1 = 640, 2048
     interior = (226, 216, 196) if day else (220, 170, 110)
     cv.rect(bx0, top + 60, bx1 - bx0, ground_y - top - 60, interior,
             shader=lin_grad((0, top), (0, ground_y), [(214, 210, 200), (180, 176, 168)] if day else [(232, 186, 122), (150, 104, 66)]))
@@ -281,7 +281,7 @@ def exterior(day=True, w=2048, h=1080, seed=12):
     # roof slab
     cv.poly([(bx0 - 120, top), (bx1, top), (bx1, top + 60), (bx0 - 80, top + 60)], (226, 224, 218) if day else (40, 48, 58),
             outline=2.2, shader=lin_grad((0, top), (0, top + 60), [(236, 234, 228), (182, 180, 176)] if day else [(52, 60, 70), (26, 32, 40)]))
-    cv.text('HYUNDAI', bx0 + 520, top + 44, 40, (24, 40, 56) if day else (236, 232, 222), 'Jost-Medium.ttf', spacing=18)
+    cv.text('HYUNDAI', bx0 + sign_dx, top + 44, 40, (24, 40, 56) if day else (236, 232, 222), 'Jost-Medium.ttf', spacing=18)
     # entrance doors
     dx = 1300
     cv.rect(dx, ground_y - 330, 180, 330, (40, 60, 74), alpha=0.35, outline=2.0)
@@ -327,8 +327,8 @@ def build():
     out['exterior_day'] = exterior(True)
     for name, img in out.items():
         save_png(img, 'Showroom/' + name)
-    # title / menu background (dusk)
-    save_png(exterior(False), 'Menu/title_dusk')
+    # title / menu background (dusk): lower framing, more sky for the title lockup
+    save_png(exterior(False, top=470, ground_y=960, sign_dx=980, city_y=420), 'Menu/title_dusk')
     return out
 
 

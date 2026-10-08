@@ -9,84 +9,48 @@
    "sprite": "Art/Vehicles/ioniq5_side_teal",
    "ppu": 200.0,
    "pivot": [
-    0.50036,
-    0.04158
+    0.49996,
+    0.04132
    ],
    "size": [
-    1243,
-    481
-   ]
-  },
-  "ioniq5_side_white": {
-   "sprite": "Art/Vehicles/ioniq5_side_white",
-   "ppu": 200.0,
-   "pivot": [
-    0.50036,
-    0.04158
-   ],
-   "size": [
-    1243,
-    481
+    1244,
+    484
    ]
   },
   "ioniq5_side_bronze": {
    "sprite": "Art/Vehicles/ioniq5_side_bronze",
    "ppu": 200.0,
    "pivot": [
-    0.50036,
-    0.04158
+    0.49996,
+    0.04132
    ],
    "size": [
-    1243,
-    481
-   ]
-  },
-  "ioniq5_side_midnight": {
-   "sprite": "Art/Vehicles/ioniq5_side_midnight",
-   "ppu": 200.0,
-   "pivot": [
-    0.50036,
-    0.04158
-   ],
-   "size": [
-    1243,
-    481
+    1244,
+    484
    ]
   },
   "ioniq5_side_teal_cabin": {
    "sprite": "Art/Vehicles/ioniq5_side_teal_cabin",
    "ppu": 200.0,
    "pivot": [
-    0.50036,
-    0.04158
+    0.49996,
+    0.04132
    ],
    "size": [
-    1243,
-    481
-   ]
-  },
-  "ioniq5_side_midnight_nowheels": {
-   "sprite": "Art/Vehicles/ioniq5_side_midnight_nowheels",
-   "ppu": 200.0,
-   "pivot": [
-    0.50036,
-    0.04158
-   ],
-   "size": [
-    1243,
-    481
+    1244,
+    484
    ]
   },
   "ioniq5_side_white_dooropen": {
    "sprite": "Art/Vehicles/ioniq5_side_white_dooropen",
    "ppu": 200.0,
    "pivot": [
-    0.50036,
-    0.04158
+    0.49996,
+    0.04132
    ],
    "size": [
-    1243,
-    481
+    1244,
+    484
    ]
   },
   "ioniq5_wheel": {
@@ -97,8 +61,8 @@
     0.5
    ],
    "size": [
-    197,
-    197
+    200,
+    200
    ]
   }
  },

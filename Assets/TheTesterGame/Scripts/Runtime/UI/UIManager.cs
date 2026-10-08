@@ -318,10 +318,15 @@ namespace TheTester
             _testsGroup.alpha = showTests ? 1f : 0f;
         }
 
+        private string _objPending;
+        private Coroutine _objRoutine;
+
         public void SetObjective(string text)
         {
-            if (_objText.text == text) return;
-            StartCoroutine(ObjectiveSwap(text));
+            if (_objPending == text) return;
+            _objPending = text;
+            if (_objRoutine != null) StopCoroutine(_objRoutine);
+            _objRoutine = StartCoroutine(ObjectiveSwap(text));
         }
 
         private IEnumerator ObjectiveSwap(string text)
