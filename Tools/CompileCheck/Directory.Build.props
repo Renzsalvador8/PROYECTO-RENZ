@@ -1,0 +1,7 @@
+<Project>
+  <!-- Each compile-check project gets its own intermediate folder (must be set before the SDK props are imported,
+       otherwise NuGet writes all three restores to the same obj/project.assets.json). -->
+  <PropertyGroup>
+    <BaseIntermediateOutputPath>obj/$(MSBuildProjectName)/</BaseIntermediateOutputPath>
+  </PropertyGroup>
+</Project>

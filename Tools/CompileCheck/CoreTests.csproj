@@ -7,7 +7,6 @@
     <IsPackable>false</IsPackable>
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <RootNamespace>TheTester.Tests</RootNamespace>
-    <BaseIntermediateOutputPath>obj/core/</BaseIntermediateOutputPath>
     <OutputPath>bin/core/</OutputPath>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
   </PropertyGroup>

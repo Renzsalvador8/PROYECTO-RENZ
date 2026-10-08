@@ -158,12 +158,14 @@ is about 38 M texels (~38 MB in GPU memory with DXT compression); audio is ~3.4 
 
 ### Automatic build and web link (GitHub Actions)
 
-`.github/workflows/webgl.yml` runs on every push. Without any setup it runs the Core tests and the compile checks.
+`.github/workflows/webgl.yml` runs on every push to `claude/eloquent-turing-hyvqcr` or `main` (documentation-only
+changes are skipped), on pull requests, and manually via *Actions ▸ Run workflow*. Without any setup it runs the Core
+tests and the compile checks.
 With a free Unity Personal licence stored as repository secrets (`UNITY_LICENSE` = contents of the `.ulf` file,
 `UNITY_EMAIL`, `UNITY_PASSWORD`) it also builds the WebGL player with Unity 6 (GameCI, using
 `TheTesterBuild.BuildWebGLBatch`), attaches it to the run as the `TheTester-WebGL` artifact and, once
 *Settings ▸ Pages ▸ Source* is set to *GitHub Actions*, publishes it to
-`https://renzsalvador8.github.io/PROYECTO-RENZ/`. It then runs the EditMode and PlayMode suites inside Unity.
+`https://renzsalvador8.github.io/PROYECTO-RENZ/` (only from the default branch). It then runs the EditMode and PlayMode suites inside Unity.
 Without the secrets the Unity jobs are skipped, not failed. Step-by-step (Spanish): `Docs/COMO_PROBAR.md`.
 
 ---
@@ -207,10 +209,10 @@ under URP 2D), and builds scenes from code to avoid hand-authored editor assets.
 
 ```bash
 pip install numpy scipy pillow skia-python
-cd Tools/ArtPipeline && python3 build_all.py      # ~2 min: rig, clips, cars, every scene, UI, levels
-cd Tools/AudioPipeline && python3 synth.py        # ~20 s: ambiences and effects (needs ffmpeg)
-cd Tools/AudioPipeline && python3 soundtrack.py   # ~10 s: the 4 music cues, cut from source/zenith_theme_master.ogg
-python3 Tools/UnityMeta/generate_meta.py          # .meta files for any new asset
+(cd Tools/ArtPipeline && python3 build_all.py)       # ~2 min: rig, clips, cars, every scene, UI, levels
+(cd Tools/AudioPipeline && python3 synth.py)         # ~20 s: ambiences and effects (needs ffmpeg)
+(cd Tools/AudioPipeline && python3 soundtrack.py)    # ~10 s: the 4 music cues, cut from source/zenith_theme_master.ogg
+python3 Tools/UnityMeta/generate_meta.py             # .meta files for any new asset
 ```
 
 `Tools/ArtPipeline/preview.py` / `preview_states.py` / `render_doc_previews.py` composite level layouts and rig

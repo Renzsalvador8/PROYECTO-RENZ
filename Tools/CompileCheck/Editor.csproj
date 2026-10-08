@@ -6,7 +6,6 @@
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <AssemblyName>TheTester.Editor.Check</AssemblyName>
     <OutputPath>bin/editor/</OutputPath>
-    <BaseIntermediateOutputPath>obj/editor/</BaseIntermediateOutputPath>
     <DefineConstants>UNITY_EDITOR;UNITY_INCLUDE_TESTS;TT_INPUT_SYSTEM;ENABLE_INPUT_SYSTEM;UNITY_2021_3_OR_NEWER</DefineConstants>
     <NoWarn>CS0649;CS0414</NoWarn>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>

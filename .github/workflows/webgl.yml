@@ -161,7 +161,7 @@ jobs:
   unity-tests:
     name: Unity tests (EditMode + PlayMode)
     needs: [gate, build-webgl]
-    if: always() && needs.gate.outputs.unity == 'true'
+    if: ${{ !cancelled() && needs.gate.outputs.unity == 'true' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     permissions:
@@ -194,7 +194,7 @@ jobs:
           testMode: all
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           checkName: Unity tests (EditMode + PlayMode)
-      - if: always()
+      - if: ${{ !cancelled() && steps.tests.outputs.artifactsPath != '' }}
         uses: actions/upload-artifact@v7
         with:
           name: unity-test-results

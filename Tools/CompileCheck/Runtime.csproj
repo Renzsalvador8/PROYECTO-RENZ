@@ -2,7 +2,7 @@
   <!--
     Compile-checks the Unity runtime scripts without the Unity Editor, against Unity reference assemblies from NuGet
     (Unity 2021.3 module stubs + UI 2020.3). Run ./fetch_refs.sh first, then:
-      dotnet build Tools/CompileCheck/Runtime.csproj -p:TTDefines="TT_INPUT_SYSTEM;ENABLE_INPUT_SYSTEM"
+      dotnet build Tools/CompileCheck/Runtime.csproj "-p:TTDefines=TT_INPUT_SYSTEM%3BENABLE_INPUT_SYSTEM"
   -->
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
@@ -11,7 +11,6 @@
     <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
     <AssemblyName>TheTester.Runtime.Check</AssemblyName>
     <OutputPath>bin/runtime/</OutputPath>
-    <BaseIntermediateOutputPath>obj/runtime/</BaseIntermediateOutputPath>
     <TTDefines Condition="'$(TTDefines)' == ''">ENABLE_LEGACY_INPUT_MANAGER</TTDefines>
     <DefineConstants>$(TTDefines);UNITY_2021_3_OR_NEWER;UNITY_6000_0_OR_NEWER</DefineConstants>
     <NoWarn>CS0649;CS0414</NoWarn>

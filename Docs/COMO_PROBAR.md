@@ -30,8 +30,8 @@ para jugar en el navegador** y compartirlo con el cliente, usa la **Opción B** 
 6. En la pestaña **Game**, pon la resolución en **16:9 (1920×1080)** para verlo como en la web.
 
 **Controles:** **A/D** o **←/→** caminar · **E** (o Enter) inspeccionar/interactuar · **ratón** mover la lupa,
-**clic** señalar un detalle · **Esc** (o P) pausa. En el manejo: **D/→** acelerar, **A/←** frenar (mantén el freno
-con el auto detenido para retroceder), **W/S** o **↑/↓** cambiar de carril, **Espacio** claxon. En la llegada al
+**clic** señalar un detalle · **Esc** (o P) pausa. En el manejo: **D/→** acelerar, **A/←** frenar (con el auto ya
+detenido, suelta el freno y vuelve a mantenerlo para retroceder), **W/S** o **↑/↓** cambiar de carril, **Espacio** claxon. En la llegada al
 concesionario, Espacio/Enter/E salta la introducción. En celulares y tablets aparecen botones táctiles.
 
 **Pruebas automáticas dentro de Unity:** *Window ▸ General ▸ Test Runner*: pestaña **EditMode ▸ Run All**
@@ -49,7 +49,9 @@ python3 -m http.server 8080      # luego abre http://localhost:8080
 
 ## Opción B — Link para jugar en el navegador (GitHub lo construye solo)
 
-El repositorio ya incluye una automatización (`.github/workflows/webgl.yml`). Cada vez que se suben cambios:
+El repositorio ya incluye una automatización (`.github/workflows/webgl.yml`). Se ejecuta cada vez que se suben
+cambios de código a la rama principal (`claude/eloquent-turing-hyvqcr` o `main`; los cambios que solo tocan
+documentación no la disparan) y también a mano desde **Actions ▸ The Tester · WebGL ▸ Run workflow**:
 
 * siempre corre la **verificación sin Unity** (pruebas + compilación);
 * si configuras tu licencia de Unity (gratis), además **construye la versión web con Unity 6** y la **publica** en
